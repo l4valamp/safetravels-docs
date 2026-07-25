@@ -228,13 +228,14 @@
   },
   "active": "a9071b17a4ca2269",
   "lastOpenFiles": [
-    "index.md",
     "Getting Started/CoolNewEnemy.md",
+    "Getting Started/DOCUMENTATION GUIDE.md",
+    "Programming/Inventory.md",
+    "Programming/Quest System.md",
+    "index.md",
     "Assets/vintage-yellow-new-york-taxi-nyc-usa-DACFHY-1904685920.jpg",
     "Programming/Architecture.md",
     "Untitled",
-    "Programming/Quest System.md",
-    "Programming/Inventory.md",
     "Art/Pipeline.md",
     "Assets/Pasted image 20260725003424.png",
     "Templates/Tutorial.md",
@@ -248,7 +249,6 @@
     "Art",
     "Getting Started/Project Overview.md",
     "Programming",
-    "Getting Started/DOCUMENTATION GUIDE.md",
     "Getting Started"
   ]
 }
