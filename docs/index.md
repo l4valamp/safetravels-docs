@@ -8,3 +8,4 @@ Welcome to the project documentation.
 - [[Project Overview]]
 - [[Architecture]]
 - [[Tutorial]]
+![[vintage-yellow-new-york-taxi-nyc-usa-DACFHY-1904685920.jpg]]

@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Getting Started/CoolNewEnemy.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CoolNewEnemy"
+              "title": "index"
             }
           }
         ],
@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting Started/CoolNewEnemy.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for CoolNewEnemy"
+              "title": "Backlinks for index"
             }
           },
           {
@@ -142,12 +142,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Getting Started/CoolNewEnemy.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from CoolNewEnemy"
+              "title": "Outgoing links from index"
             }
           },
           {
@@ -185,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Getting Started/CoolNewEnemy.md",
+                "file": "index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of CoolNewEnemy"
+              "title": "Outline of index"
             }
           }
         ]
@@ -214,9 +214,9 @@
   },
   "active": "41e01cc283b1d017",
   "lastOpenFiles": [
+    "Getting Started/CoolNewEnemy.md",
     "Assets/vintage-yellow-new-york-taxi-nyc-usa-DACFHY-1904685920.jpg",
     "Programming/Architecture.md",
-    "Getting Started/CoolNewEnemy.md",
     "Untitled",
     "Programming/Quest System.md",
     "Programming/Inventory.md",
