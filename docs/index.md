@@ -4,7 +4,7 @@ Welcome to the project documentation.
 
 ## Sections
 
-- Design
-- Programming
-- Art
-- Testing
+- [[Team Setup]]
+- [[Project Overview]]
+- [[Architecture]]
+- [[Tutorial]]
