@@ -1,0 +1,15 @@
+site_name: Safe Travels Documentation
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - awesome-pages
+  - roamlinks
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
