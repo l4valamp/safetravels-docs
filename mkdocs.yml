@@ -1,7 +1,15 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
 site_name: Safe Travels Documentation
+site_url: https://l4valamp.github.io/safetravels-docs/
 
 theme:
   name: material
+  palette: 
+    scheme: slate
+    primary: deep orange
+    accent: orange
+  
   features:
     - navigation.tabs
     - navigation.sections
@@ -11,11 +19,13 @@ theme:
 
 plugins:
   - search
-  - awesome-pages
-  - roamlinks
+  - awesome-pages #this is a plugin it doesnt recognize but works fine
+  - roamlinks #this too
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - tables
   - attr_list
   - toc:

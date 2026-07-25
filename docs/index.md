@@ -4,7 +4,7 @@ Welcome to the project documentation.
 
 ## Sections
 
-- [[Team Setup]]
+- [[DOCUMENTATION GUIDE]]
 - [[Project Overview]]
 - [[Architecture]]
 - [[Tutorial]]
