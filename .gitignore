@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Python virtual environments
+.venv/
+venv/
+__pycache__/
+
+# MkDocs build output
+site/
+
+# Logs
+*.log
