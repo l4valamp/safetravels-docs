@@ -17,3 +17,7 @@ site/
 
 # Logs
 *.log
+
+#Obsidian layout
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
