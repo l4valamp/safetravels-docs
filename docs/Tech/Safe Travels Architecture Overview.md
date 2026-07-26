@@ -7,6 +7,3 @@ The save system stores player progress
 - Inventory
 - Player Position 
 - Quest State
-## Related Systems
-[[Inventory]]
-[[Quest System]]

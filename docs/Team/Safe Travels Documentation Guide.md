@@ -1,0 +1,55 @@
+## Working with Obsidian through Github (Setup)
+
+#### Pipeline Overview
+Obsidian is a note-taking app for working with Markdown files. Markdown files act like text files and can be edited outside of Obsidian. They are tiny, and the ones you work with in Obsidian are stored locally on your computer, giving you total ownership over them. 
+
+We are using Github to share and sync our Obsidian project. When we push changes to Github, it sends our bare-bones Markdown files to a program called MKDocs that converts the Markdown to HTML and builds a website. A second program called Material for MKDocs then adds extra styling. Finally, Github Pages updates our site and the change is live.
+
+``` mermaid
+graph LR
+  A[Obsidian<br/>Write Markdown Docs] --> B[Github<br/>Version Control. When we push changes to Github, it automatically tells MKDocs to rebuild the site];
+  B --> C[MKDocs<br/>Converts Markdown to HTMl, builds site];
+  C --> D[Material<br/>MKDocs Plugin. Applies nav/ui/site skin. Allows us customization.];
+  D --> F[Website<br/>Hosted for free on Github Pages.];
+```
+
+With this pipeline, our writing and styling are being handled by completely separate entities. This lets us make easy global changes to our page styling, and keeps our documentation independent from its platform in case we want to move things around or reuse it in the future.
+
+Team members interested in writing documentation will need to connect to our repo through Github to open the wiki in Obsidian and make changes. (Technically, one could just edit the Markdown files on the Github website in an emergency, but Obsidian is a much nicer environment to work in.)
+
+#### Why Obsidian?
+1. Obsidian is free!
+	* Most other collaborative Wiki programs (Notion, Confluence, Wordpress, Clickup, etc.) Paywall collaboration and document sharing. 
+	* Even if it wasn't free, Obsidian still has serious advantages over other platforms. 
+2. Markdown is straightforward to use.
+	*  Markdown is a writing format created in 2004 as an easier way to write HTML.
+	* Markdown prevents overthinking formatting and styling documentation.
+	* Documentation styling is done automatically by our MKDocs skin.
+3. Markdown files are portable.
+	* Markdown files can be converted into HTML and keep their formatting across platforms/vendors. Other vendors use bespoke formatting we could not easily transfer. 
+
+
+***
+
+#### Getting Started
+1. Install prerequisite programs:
+	1. [Download Obsidian](https://obsidian.md/download) (for free!) 
+	2. [Download Github Desktop](https://desktop.github.com/download/) (for free!)
+	3.  [Create Github Account](https://github.com/) (if lacking one)
+2. Clone the repository to your computer. 
+	1. [Access our Repository on Github](https://github.com/l4valamp/safetravels-docs)
+	2. Click the green **Code Dropdown**, **Open with Github Desktop**.
+	3. When Github Desktop opens, it should prompt you where you'd like to store your repository. Choose a location and hit **Clone**. 
+	4. Once it is finished downloading, you are able to access it in Obsidian.
+![[Pasted image 20260726023118.png]]
+3. Open the Repository in Obsidian
+	1. Open Obsidian.
+	2. Click **Open Folder as Vault**.
+	3. Go to the folder you cloned with Github Desktop and select the **Docs** sub-folder. Then click open.
+![[Pasted image 20260726024517.png]]
+
+
+### Editing Workflow
+
+!!! Danger "Before Working"
+	Always remember to open Github Desktop and "Fetch Recent Changes"

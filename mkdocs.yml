@@ -21,11 +21,13 @@ plugins:
   - search
   - awesome-pages #this is a plugin it doesnt recognize but works fine
   - roamlinks #this too
+  - snippets #plugin should be fine
 
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.snippets
   - tables
   - attr_list
   - md_in_html

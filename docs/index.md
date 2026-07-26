@@ -1,11 +1,12 @@
 # Safe Travels Documentation
 
-Welcome to the project documentation.
+Awesome project documentation
 
-## Sections
+### Start Here
+- Whole Team
+	* [[Safe Travels Asset Naming Guide]]
+	* [[Safe Travels Documentation Guide]]
+* Tech
+	* [[Safe Travels Architecture Overview]]
 
-- [[DOCUMENTATION GUIDE]]
-- [[Project Overview]]
-- [[Architecture]]
-- [[Tutorial]]
 ![[vintage-yellow-new-york-taxi-nyc-usa-DACFHY-1904685920.jpg]]
