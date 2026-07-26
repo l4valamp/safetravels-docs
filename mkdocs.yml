@@ -21,7 +21,6 @@ plugins:
   - search
   - awesome-pages #this is a plugin it doesnt recognize but works fine
   - roamlinks #this too
-  - snippets #plugin should be fine
 
 markdown_extensions:
   - admonition
