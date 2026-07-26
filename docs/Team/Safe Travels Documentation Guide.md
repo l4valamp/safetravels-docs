@@ -1,4 +1,4 @@
-## Working with Obsidian through Github (Setup)
+## Pipeline Explanation 
 
 #### Pipeline Overview
 Obsidian is a note-taking app for working with Markdown files. Markdown files act like text files and can be edited outside of Obsidian. They are tiny, and the ones you work with in Obsidian are stored locally on your computer, giving you total ownership over them. 
@@ -31,7 +31,8 @@ Team members interested in writing documentation will need to connect to our rep
 
 ***
 
-#### Getting Started
+## Getting Started
+
 1. Install prerequisite programs:
 	1. [Download Obsidian](https://obsidian.md/download) (for free!) 
 	2. [Download Github Desktop](https://desktop.github.com/download/) (for free!)
@@ -48,8 +49,25 @@ Team members interested in writing documentation will need to connect to our rep
 	3. Go to the folder you cloned with Github Desktop and select the **Docs** sub-folder. Then click open.
 ![[Pasted image 20260726024517.png]]
 
+***
+## Updating Documentation
 
-### Editing Workflow
+!!! Danger "Important Warnings to Read First and Remember Always"
+	**We cannot Check out Files with Github and Obsidian like we can with Unreal and Perforce**. <br/>
+	
+	Before writing documentation, Always remember to open Github Desktop and **Fetch Origin**, then **Pull Origin**. This is the equivalent of refreshing and getting latest from Perforce. 
+	
+	**Communicate with the team if you work on pre-existing pages others might also be writing in.** Becaues Markdown is such a simple format, it will be straightforward to retrieve overwritten material and copy-paste it back in, but that's only if the work was pushed to main. **Push your work often.**
+	
+	**Commiting a file to main is not the same as pushing. Remember to always click "Push to Main" after working.**
 
-!!! Danger "Before Working"
-	Always remember to open Github Desktop and "Fetch Recent Changes"
+#### Helpful Resources
+* [Material for MKDocs Guide](https://squidfunk.github.io/mkdocs-material/reference/diagrams/) explains fun formatting options
+* [[Markdown Copy-paste Tools]] has several ready to copy-paste formatting blocks from the Material guide.
+* [Markdown formatting cheat-sheet](https://www.craftmarkdown.com/markdown-cheat-sheet)
+
+!!! note "Standards and Practices"
+	If you paste in an image drag the image into the Assets folder on the left. Try to keep all image file sizes smallish or host images on imgur.
+
+!!! warning "This page is a work in progress"
+	This page will be updated with new standards and practices we discover what works.

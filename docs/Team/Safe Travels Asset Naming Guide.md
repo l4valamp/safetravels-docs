@@ -2,9 +2,8 @@
 ## Content Drawer
 
 --8<-- "./docs/snippets/contentdrawermap.md"
-***
 ## Art
-
+<!--This uses a MKDocs tool called "Snippets". Pages in the "Snippets" folder can be embedded in other pages. This lets us create single sources of truth that will automatically update across pages when we change them -->
 --8<-- "./docs/snippets/assetnames/artassetnames.md"
 
 --8<-- "./docs/snippets/assetnames/textureassetnames.md"
