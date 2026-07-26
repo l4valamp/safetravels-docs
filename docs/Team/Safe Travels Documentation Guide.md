@@ -66,8 +66,28 @@ Team members interested in writing documentation will need to connect to our rep
 * [[Markdown Copy-paste Tools]] has several ready to copy-paste formatting blocks from the Material guide.
 * [Markdown formatting cheat-sheet](https://www.craftmarkdown.com/markdown-cheat-sheet)
 
-!!! note "Standards and Practices"
-	If you paste in an image drag the image into the Assets folder on the left. Try to keep all image file sizes smallish or host images on imgur.
+#### Standards and Practices
+* If you paste in an image drag the image into the Assets folder on the left. 
+* Try to keep all image file sizes smallish or host images on Imgur.	
 
 !!! warning "This page is a work in progress"
 	This page will be updated with new standards and practices we discover what works.
+
+#### Previewing the Website live (OPTIONAL)
+
+If you want to view changes to the website as you're writing, MKDocs allows users to preview changes before they're published. 
+
+1. [Install Python](https://www.python.org/downloads/) 
+	1. Enable **Add Python to PATH** during installation
+2. Open your local Repository clone that contains the Obsidian files: **Safetravels-docs** 
+3. Hold shift and right click. On Windows, click the option that says **Open Powershell Window Here**. 
+4. Paste: 
+   ```
+   .venv\Scripts\Activate.ps1
+   ```
+   5. Paste:
+   ```
+   mkdocs serve
+   ```
+   6. That should have given you a link like: Serving on http://127.0.0.1:8000/safetravels-docs/. Copy-paste this into the browser. 
+   7. When you're finished, click into the code window and hit CTRL + C to stop the updating. 
