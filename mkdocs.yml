@@ -7,7 +7,7 @@ theme:
   name: material
   palette: 
     scheme: slate
-    primary: yellow
+    primary: amber
     accent: yellow
   
   features:
