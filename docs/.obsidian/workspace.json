@@ -201,9 +201,15 @@
   "active": "eb803bd34f94cdaf",
   "lastOpenFiles": [
     "Tech/Sound Documentation.md",
+<<<<<<< Updated upstream
     "Tech/UI Documentation.md",
     "Team/Safe Travels Asset Naming Guide.md",
     "Tech/gretanotetest.md",
+=======
+    "Tech/gretanotetest.md",
+    "Tech/UI Documentation.md",
+    "Team/Safe Travels Asset Naming Guide.md",
+>>>>>>> Stashed changes
     "snippets/AssetNames/MaterialAssetNames.md",
     "snippets/AssetNames/BlueprintAssetNames.md",
     "Team/Safe Travels Documentation Guide.md",
