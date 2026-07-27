@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Art/Pipeline.md",
+                "file": "snippets/ContentDrawerMap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pipeline"
+              "title": "ContentDrawerMap"
             }
           }
         ],
@@ -198,24 +198,25 @@
       "bases:Create new base": false
     }
   },
-  "active": "8f77861e7adb3b0a",
+  "active": "b9eadb343f031e5d",
   "lastOpenFiles": [
+    "index.md",
+    "Assets/Pasted image 20260726023118.png",
+    "Team/Safe Travels Documentation Guide.md",
+    "Assets/Pasted image 20260725003424.png",
+    "Art/Pipeline.md",
     "Tech/UI Documentation.md",
     "Art/100penises.md",
     "Assets/Untitled.md",
-    "Art/Pipeline.md",
     "Team/Safe Travels Asset Naming Guide.md",
     "snippets/AssetNames/MaterialAssetNames.md",
     "snippets/AssetNames/BlueprintAssetNames.md",
-    "Team/Safe Travels Documentation Guide.md",
     "snippets/ContentDrawerMap.md",
     "Templates/BlankAssetNames.md",
     "Templates/Markdown Copy-paste Tools.md",
-    "index.md",
     "Tech/Safe Travels Architecture Overview.md",
     "Assets/Pasted image 20260726024517.png",
     "Pasted image 20260726023012.png",
-    "Assets/Pasted image 20260726023118.png",
     "Tech/Quest System.md",
     "Tech/Inventory.md",
     "snippets/AssetNames/SafeTravelsAssetNames.md",
@@ -228,7 +229,6 @@
     "Getting Started/CoolNewEnemy.md",
     "snippets",
     "Assets/vintage-yellow-new-york-taxi-nyc-usa-DACFHY-1904685920.jpg",
-    "Assets/Pasted image 20260725003424.png",
     "Assets",
     "New Text Document.txt",
     "Design/Design Doc.md",
