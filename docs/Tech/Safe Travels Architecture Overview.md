@@ -1,1 +1,1 @@
-behh
+behh [[gretanotetest]]
