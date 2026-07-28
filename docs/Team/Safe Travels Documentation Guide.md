@@ -79,15 +79,25 @@ If you want to view changes to the website as you're writing, MKDocs allows user
 
 1. [Install Python](https://www.python.org/downloads/) 
 	1. Enable **Add Python to PATH** during installation
+	2. Type Y, Y when prompted
 2. Open your local Repository clone that contains the Obsidian files: **Safetravels-docs** 
 3. Hold shift and right click. On Windows, click the option that says **Open Powershell Window Here**. 
-4. Paste: 
+4. Create the virtual environment
+5. May receive an error that running scripts is disabled on this system
+```
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+7. Paste: 
+```
+pip install -r requirements.txt
+```
+8. Paste:
    ```
-   .venv\Scripts\Activate.ps1
+   .\.venv\Scripts\Activate.ps1
    ```
-   5. Paste:
+   9. Paste:
    ```
    mkdocs serve
    ```
-   6. That should have given you a link like: Serving on http://127.0.0.1:8000/safetravels-docs/. Copy-paste this into the browser. 
-   7. When you're finished, click into the code window and hit CTRL + C to stop the updating. 
+   10. That should have given you a link like: Serving on http://127.0.0.1:8000/safetravels-docs/. Copy-paste this into the browser. 
+   11. When you're finished, click into the code window and hit CTRL + C to stop the updating. 
