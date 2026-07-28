@@ -10,7 +10,7 @@
 ##### Avoid Relying on a Chaos Physics Body
 Even if using an accumulator, Chaos does not update its physics in time with our Blueprint tick-based fixed step. **Add Force** integrates Chaos physics, so we should avoid it.
 
-##### Maintaining Vehicle State Seperately
+##### Maintaining Vehicle State Separately
 Vehicle Velocity
 Vehicle Angular Velocity
 Vehicle Position
