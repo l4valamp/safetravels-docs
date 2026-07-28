@@ -29,4 +29,32 @@ class EntityPlugin(BasePlugin):
                 '</span>'
             )
 
-        return re.sub(pattern, replace, markdown)
+        markdown = re.sub(pattern, replace, markdown)
+
+         #
+        # Pass 2 - Replace specific words
+        #
+
+        replacements = {
+            "anna": "Anna(doomed)",
+            "Greta": "COOL Greta",
+            "Audrey": "Awdrey",
+            "Carson": "Chunky P",
+            "Chris": "CHRIS",
+            "Daly": "Dally",
+            "Kat": "Kart",
+            "Riley": "Ruley",
+            "Roan": "Rooan",
+            "Cian": "Cian :3",
+            "Marley": "Mawley",
+            "Viv": "Vov",
+            "Ajax": "A Jax",
+            "Victoria": "Vee",
+            "Vee": "V",
+            "Jesse": "Je'sse",
+        }
+
+        for old, new in replacements.items():
+            markdown = re.sub(rf"\b{re.escape(old)}\b", new, markdown, flags=re.IGNORECASE)
+
+        return markdown
