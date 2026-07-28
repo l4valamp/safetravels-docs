@@ -55,6 +55,12 @@
     border-color: #883600;
 }
 
+.entity-curvefloat {
+    color: #02aefe;
+    border-color: #006488;
+}
+
+
 .entity:hover {
     color: #e3f2fd;
 }
