@@ -21,6 +21,7 @@ plugins:
   - search
   - awesome-pages #this is a plugin it doesnt recognize but works fine
   - roamlinks #this too
+  - entity #this is our custom plugin for variables
 
 markdown_extensions:
   - admonition
@@ -37,3 +38,9 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/entities.js

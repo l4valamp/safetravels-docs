@@ -11,6 +11,7 @@ Thumbs.db
 .venv/
 venv/
 __pycache__/
+*.pyc
 
 # MkDocs build output
 site/

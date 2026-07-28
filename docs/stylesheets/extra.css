@@ -1,0 +1,73 @@
+.entity {
+    color: #edeff0;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 2px 4px;
+    border-style: groove;
+    border-width: 2px;
+}
+
+
+.entity-bool {
+    color: #950106;
+    border-color: #590003;
+}
+
+.entity-int {
+    color: #1fe1ad;
+    border-color: #108969;
+}
+
+.entity-float {
+    color: #38d004;
+    border-color: #1b6d00;
+}
+
+.entity-name {
+    color: #cd83f9;
+    border-color: #5a22af
+}
+
+.entity-string {
+    color: #fe00d2;
+    border-color: #cb188c;
+}
+
+.entity-text {
+    color: #ef79ad;
+    border-color: #c02626;
+}
+
+.entity-vector {
+    color: #fac51e;
+    border-color: #b0690c;
+}
+
+.entity-rotator {
+    color: #a1b7ff;
+    border-color: #3e549e;
+}
+
+
+.entity-transform {
+    color: #fe7202;
+    border-color: #883600;
+}
+
+.entity:hover {
+    color: #e3f2fd;
+}
+
+.entity-highlight {
+   color: #e3f2fd;
+}
+
+.entity-default {
+    color: #6c6c6c;
+    border-color: rgb(62, 84, 158, 0);
+}
+
+.entity-default:hover {
+    color: #6c6c6c;
+}
