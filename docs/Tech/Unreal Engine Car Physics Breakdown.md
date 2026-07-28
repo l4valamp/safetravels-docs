@@ -18,12 +18,12 @@ Vehicle Rotation
 
 Every Fixed Step:
 
-```
-TotalForce = Engine + Tire + Suspension + Drag
-Acceleration = TotalForce / Mass
-Velocity += Acceleration * FixedStep
-Position += Velocity * FixedStep
-```
+
+#TotalForce = #Engine + #Tire + #Suspension + #Drag
+#Acceleration = #TotalForce / #Mass
+#Velocity += #Acceleration * #FixedStep
+#Position += #Velocity * #FixedStep
+
 
 
 
