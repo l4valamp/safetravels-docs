@@ -73,13 +73,13 @@ FixedPhysicsStep()
 !!! note "Cab Integrates {{TotalForce}} and {{TotalTorque}}"
 	**Linear Motion**
 	
-	* {{Acceleration:vector:l}} = {{TotalForce:vector}} / {{CabMass:float}}
-	* {{CabVelocity:vector}} += {{Acceleration:vector:l}} * {{FixedDelta:float}}
+	* {{CabAcceleration:vector:l}} = {{TotalForce:vector}} / {{CabMass:float}}
+	* {{CabVelocity:vector}} += {{CabAcceleration:vector:l}} * {{FixedDelta:float}}
 	
 	 **Rotational Motion**
 	 
-	 * {{AngularAcceleration:vector:l}} = {{TotalTorque:vector}} / {{MomentOfInertia:vector}} 
-	 * {{CabAngularVelocity}} += {{AngularAcceleration:vector:l}} * {{FixedDelta:float}}
+	 * {{CabAngularAcceleration:vector:l}} = {{TotalTorque:vector}} / {{MomentOfInertia:vector}} 
+	 * {{CabAngularVelocity}} += {{CabAngularAcceleration:vector:l}} * {{FixedDelta:float}}
 
 
 !!! note "GetVelocityAtPoint({{WorldPosition:vector:f}}) (Owned by Wheel Comp)"

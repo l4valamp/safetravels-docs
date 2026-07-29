@@ -8,7 +8,7 @@
 | {{!EngineForce:vector:Cab, Force Accumulators:""}}                       |          |         |     |
 | {{!BrakeForce:vector:Cab, Force Accumulators:""}}                        |          |         |     |
 | {{!SuspensionForce:vector:Cab, Force Accumulators:""}}                   |          |         |     |
-| {{!TireForce:vector:Cab, Force Accumulators:""}}                         |          |         |     |
+| {{!FrictionForce:vector:Cab, Force Accumulators:""}}                     |          |         |     |
 | {{!DragForce:vector:Cab, Force Accumulators:""}}                         |          |         |     |
 | {{!DownForce:vector:Cab, Force Accumulators:""}}                         |          |         |     |
 

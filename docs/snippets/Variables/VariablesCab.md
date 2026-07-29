@@ -18,7 +18,7 @@
 | {{!MaxPhysicsSteps:int:Cab, Timestep:"Prevents Infinite Loops"}}         | Prevents Infinite Loops    |          |
 | {{!PhysicsStepsThisFrame:int:Cab, Timestep:"Debug Counter"}}             | Debug Counter              |          |
 
-#### Vehicle Physics State Variables (Replacing Chaos rigid body state)
+#### Cab Physics State Variables (Replacing Chaos rigid body state)
 | Name                                                                                    | Comments                                   | Default |
 | --------------------------------------------------------------------------------------- | ------------------------------------------ | ------- |
 | {{!CabVelocity:vector:Cab, PhysicsState:"No sideways or vertical movement"}}            | No sideways or vertical movement           |         |
@@ -27,5 +27,5 @@
 | {{!CabRotation:rotator:Cab, PhysicsState:"Using Quarternion "to avoid gimbal issues""}} | Using Quarternion "to avoid gimbal issues" |         |
 | {{!CabAcceleration:vector:Cab, PhysicsState:"Current calculated forward acceleration"}} | Current calculated acceleration            |         |
 | {{!CabAngularAcceleration:vector:Cab, PhysicsState:""}}                                 |                                            |         |
-| {{!CabMass:float:Cab, PhysicsState:"Vehicle mass (kg)"}}                                | Vehicle mass (kg)                          |         |
-| {{!CenterOfMass:vector:Cab, PhysicsState:""}}                                           |                                            |         |
+| {{!CabMass:float:Cab, PhysicsState:"Cab mass (kg)"}}                                    | Cab mass (kg)                              |         |
+| {{!CabCenterOfMass:vector:Cab, PhysicsState:""}}                                        |                                            |         |

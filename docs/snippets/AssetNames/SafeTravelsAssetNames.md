@@ -7,3 +7,4 @@
 | Stop      |           | A viable drop off / pickup location volume     |
 | Passenger |           | The version of the NPC in the back of your car |
 | Player    |           | The player character (Taxi)                    |
+| Cab       |           | The Cab vehicle body                           |
