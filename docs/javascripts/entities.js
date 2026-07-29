@@ -1,108 +1,112 @@
-document.addEventListener("mouseover", function (event) {
-
-    const entity = event.target.closest(".entity");
-
-    if (!entity) return;
-
-    const type = entity.dataset.type;
-
-    // Default entities do not highlight
-    if (type === "default") {
-        return;
-    }
-
-    const name = entity.dataset.entity;
-
-    document.querySelectorAll(".entity").forEach(other => {
-
-        if (
-            other.dataset.entity === name &&
-            other.dataset.type !== "default"
-        ) {
-            other.classList.add("entity-highlight");
-        }
-
-    });
-
-});
-
-
-document.addEventListener("mouseout", function (event) {
-
-    const entity = event.target.closest(".entity");
-
-    if (!entity) return;
-
-    document.querySelectorAll(".entity").forEach(other => {
-        other.classList.remove("entity-highlight");
-    });
-
-});
-
-
-//
-// Track currently open popup entity
-//
-
 let activeEntity = null;
 
 
 
 //
-// Click entity -> show/hide definition popup
+// Hover highlighting
 //
 
-document.addEventListener("click", function (event) {
+document.addEventListener(
+    "mouseover",
+    function(event) {
 
-    const entity = event.target.closest(".entity");
-    const popup = event.target.closest(".entity-popup");
+        const entity =
+            event.target.closest(".entity");
 
 
-    // Clicking inside popup does nothing
-    if (popup) {
-        return;
+        if (!entity) return;
+
+
+        const name =
+            entity.dataset.entity;
+
+
+        document
+            .querySelectorAll(".entity")
+            .forEach(other => {
+
+                if (
+                    other.dataset.entity === name
+                ) {
+                    other.classList.add(
+                        "entity-highlight"
+                    );
+                }
+
+            });
+
     }
+);
 
 
-    // Clicking an entity
-    if (entity) {
 
-        const description = entity.dataset.description;
+document.addEventListener(
+    "mouseout",
+    function(event) {
+
+        const entity =
+            event.target.closest(".entity");
 
 
-        // No definition
-        if (!description) {
+        if (!entity) return;
+
+
+        document
+            .querySelectorAll(".entity")
+            .forEach(other => {
+
+                other.classList.remove(
+                    "entity-highlight"
+                );
+
+            });
+
+    }
+);
+
+
+
+
+
+//
+// Click popup
+//
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const entity =
+            event.target.closest(".entity");
+
+
+        if (!entity) {
+
             closeDefinitionPopup();
+
             return;
         }
 
 
-        // Clicking the same variable closes it
         if (activeEntity === entity) {
+
             closeDefinitionPopup();
+
             return;
         }
 
 
-        // Clicking a different variable opens/repositions it
         showDefinitionPopup(entity);
 
-        return;
     }
-
-
-    // Clicking elsewhere closes popup
-    closeDefinitionPopup();
-
-});
+);
 
 
 
-//
-// Create popup
-//
+
 
 function showDefinitionPopup(entity) {
+
 
     closeDefinitionPopup();
 
@@ -110,54 +114,87 @@ function showDefinitionPopup(entity) {
     activeEntity = entity;
 
 
-    const popup = document.createElement("div");
+    const popup =
+        document.createElement(
+            "div"
+        );
 
-    popup.className = "entity-popup";
+
+    popup.className =
+        "entity-popup";
+
 
 
     popup.innerHTML = `
+
         <div class="entity-popup-title">
             ${entity.dataset.entity}
         </div>
 
+
         <div class="entity-popup-meta">
-            ${entity.dataset.type} | ${entity.dataset.scope}
+            ${entity.dataset.type}
+            |
+            ${entity.dataset.scope}
         </div>
 
+
         <div class="entity-popup-description">
-            ${entity.dataset.description}
+            ${
+                entity.dataset.description ||
+                "No description available"
+            }
         </div>
+
     `;
 
 
-    document.body.appendChild(popup);
+
+    document.body.appendChild(
+        popup
+    );
 
 
-    const rect = entity.getBoundingClientRect();
+
+    const rect =
+        entity.getBoundingClientRect();
+
+
 
     popup.style.left =
-        `${rect.left + window.scrollX}px`;
+        `${
+            rect.left +
+            window.scrollX
+        }px`;
+
+
 
     popup.style.top =
-        `${rect.bottom + window.scrollY + 8}px`;
+        `${
+            rect.bottom +
+            window.scrollY +
+            8
+        }px`;
 
 }
 
 
 
-//
-// Remove popup
-//
+
 
 function closeDefinitionPopup() {
 
-    const existing = document.querySelector(
-        ".entity-popup"
-    );
+
+    const popup =
+        document.querySelector(
+            ".entity-popup"
+        );
 
 
-    if (existing) {
-        existing.remove();
+    if (popup) {
+
+        popup.remove();
+
     }
 
 

@@ -1,149 +1,79 @@
-import re
-
 from mkdocs.plugins import BasePlugin
+
+from .extension import EntityExtension
 
 
 class EntityPlugin(BasePlugin):
 
-    def on_page_markdown(self, markdown, **kwargs):
+    def __init__(self):
+        self.definitions = {}
 
-        definitions = {}
 
-        #
-        # Pass 1 - Collect variable definitions
-        #
-        # Syntax:
-        # {{!Name:type:scope:"Description"}}
-        #
+    def on_page_markdown(
+        self,
+        markdown,
+        **kwargs
+    ):
+
+        import re
+
+        self.definitions.clear()
+
 
         definition_pattern = re.compile(
-            r'\{\{!([^}:]+)(?::([^}:]+))?(?::([^}:]+))?(?::"([^"]*)")?\}\}'
+            r'\{\{!'
+            r'([^}:]+)'
+            r'(?::([^}:]+))?'
+            r'(?::([^}:]+))?'
+            r':"([^"]*)"'
+            r'\}\}'
         )
 
-        def collect_definition(match):
+
+        for match in definition_pattern.finditer(markdown):
 
             entity = match.group(1).strip()
 
-            variable_type = (
-                match.group(2).strip()
-                if match.group(2)
-                else "default"
-            )
 
-            scope = (
-                match.group(3).strip()
-                if match.group(3)
-                else "default"
-            )
+            self.definitions[entity] = {
 
-            description = (
-                match.group(4).strip()
-                if match.group(4)
-                else ""
-            )
+                "type":
+                    match.group(2).strip()
+                    if match.group(2)
+                    else "default",
 
-            definitions[entity] = {
-                "type": variable_type,
-                "scope": scope,
-                "description": description,
+                "scope":
+                    match.group(3).strip()
+                    if match.group(3)
+                    else "default",
+
+                "description":
+                    match.group(4).strip(),
             }
-
-            #
-            # Return the same variable syntax without !
-            # so Pass 2 can process it normally
-            #
-
-            return (
-                f"{{{{{entity}:{variable_type}:{scope}}}}}"
-            )
-
-
-        markdown = definition_pattern.sub(
-            collect_definition,
-            markdown
-        )
-
-
-        #
-        # Pass 2 - Replace entity references
-        #
-
-        pattern = re.compile(
-            r"\{\{([^}:]+)(?::([^}:]+))?(?::([^}:]+))?\}\}"
-        )
-
-
-        def replace(match):
-
-            entity = match.group(1).strip()
-
-            variable_type = (
-                match.group(2).strip()
-                if match.group(2)
-                else "default"
-            )
-
-            scope = (
-                match.group(3).strip()
-                if match.group(3)
-                else "default"
-            )
-
-            description = ""
-
-            if entity in definitions:
-                description = definitions[entity]["description"]
-
-
-            return (
-                f'<span '
-                f'class="entity entity-{variable_type} '
-                f'entity-scope-{scope}" '
-                f'data-entity="{entity}" '
-                f'data-type="{variable_type}" '
-                f'data-scope="{scope}" '
-                f'data-description="{description}">'
-                f'{entity}'
-                f'</span>'
-            )
-
-
-        markdown = pattern.sub(
-            replace,
-            markdown
-        )
-
-
-        #
-        # Pass 3 - Replace specific words
-        #
-
-        replacements = {
-            "anna": "Anna(doomed)",
-            "Greta": "COOL Greta",
-            "Audrey": "Awdrey",
-            "Carson": "Chunky P",
-            "Chris": "CHRIS",
-            "Daly": "Dally",
-            "Kat": "Kart",
-            "Riley": "Ruley",
-            "Roan": "Rooan",
-            "Cian": "Cian :3",
-            "Marley": "Mawley",
-            "Viv": "Vov",
-            "Ajax": "A Jax",
-            "Victoria": "Vee",
-            "Vee": "V",
-            "Jesse": "Je'sse",
-        }
-
-        for old, new in replacements.items():
-            markdown = re.sub(
-                rf"\b{re.escape(old)}\b",
-                new,
-                markdown,
-                flags=re.IGNORECASE,
-            )
 
 
         return markdown
+
+
+
+    def on_config(self, config):
+
+        plugin = self
+
+
+        class EntityExtensionWrapper(EntityExtension):
+
+            def extendMarkdown(self, md):
+
+                super().extendMarkdown(
+                    md,
+                    plugin
+                )
+
+
+        config["markdown_extensions"].append(
+            EntityExtensionWrapper()
+        )
+
+
+        return config

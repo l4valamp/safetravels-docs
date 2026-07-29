@@ -149,7 +149,7 @@ FixedPhysicsStep()
 	
 	| Name                               | Comments               | Default |
 	| ---------------------------------- | ---------------------- | ------- |
-	| {{SpringStrength:float}}           | Spring Stiffness       |         |
+	|        | Spring Stiffness       |         |
 	| {{SpringDamping:float}}            | Shock Damping          |         |
 	| {{MaxSuspensionCompression:float}} | Maximum Travel         |         |
 	| {{RestSuspensionLength:float}}     | Normal Wheel Extension |         |
@@ -159,79 +159,7 @@ FixedPhysicsStep()
 	
 	### Force Accumulators
 	
-	Instead of adding force at location on the rigid body. we add to force values and use those to change location and rotation. 
-	
-	| Name                       | Comments | Default |
-	| -------------------------- | -------- | ------- |
-	| {{!TotalForce:vector:Cab, Force Accumulators:"Description blah blah"}}     |          |         |
-	| {{!TotalTorque:vector: Cab | Force Accumulators:"Total Torque To Apply"}}     |          |         |
-	| {{EngineForce:vector}}     |          |         |
-	| {{BrakeForce:vector}}      |          |         |
-	| {{SuspensionForce:vector}} |          |         |
-	| {{TireForce:vector}}       |          |         |
-	| {{DragForce:vector}}       |          |         |
-	| {{DownForce:vector}}       |          |         |
-	
-	
-	#### Engine/Drive
-	
-	| Name                      | Comments | Default |
-	| ------------------------- | -------- | ------- |
-	| {{MaxDrivePower:float}}   |          |         |
-	| {{DrivePowerScale:float}} |          |         |
-	| {{MaxSpeed:float}}        |          |         |
-	| {{MaxSpeedScale:float}}   |          |         |
-	| {{PowerCurve:curvefloat}} |          |         |
-	
-	
-	#### Braking
-	
-	| Name                        | Comments | Default |
-	| --------------------------- | -------- | ------- |
-	| {{bBraking:bool}}           |          |         |
-	| {{BrakeInput:float}}        |          |         |
-	| {{DecelerationForce:float}} |          |         |
-	| {{BrakeStrength:float}}     |          |         |
-	
-	#### Steering
-	
-	| Name                           | Comments | Default |
-	| ------------------------------ | -------- | ------- |
-	| {{SteeringInput:float}}        |          |         |
-	| {{CurrentSteeringAngle:float}} |          |         |
-	| {{MaxSteeringAngle:float}}     |          |         |
-	| {{SteeringSensitivity:float}}  |          |         |
-	| {{SteeringSpeed:float}}        |          |         |
-	
-	#### Air Control
-	
-	
-	| Name                         | Comments | Default |
-	| ---------------------------- | -------- | ------- |
-	| {{AirControlStrength:float}} |          |         |
-	| {{AirPitchInput:float}}      |          |         |
-	| {{AirYawInput:float}}        |          |         |
-	| {{AirTime:float}}            |          |         |
-	| {{bAirborne:bool}}           |          |         |
-	
-	#### RigidBody/Sleeping
-	
-	| Name                     | Comments | Default |
-	| ------------------------ | -------- | ------- |
-	| {{FreezeTimer:float}}    |          |         |
-	| {{FreezeDelay:float}}    |          |         |
-	| {{bFrozen:bool}}         |          |         |
-	| {{bFreezeRotation:bool}} |          |         |
-	
-	#### Surface Data Struct
-	| Name                        | Comments | Default |
-	| --------------------------- | -------- | ------- |
-	| {{SurfaceTag:name}}         |          |         |
-	| {{FrictionScale:float}}     |          |         |
-	| {{DrivePowerScale:float}}   |          |         |
-	| {{SpeedLimitScale:float}}   |          |         |
-	| {{bEnforceSpeedLimit:bool}} |          |         |
-
+	--8<-- "./docs/snippets/CabVariablesAccumulators.md"
 ***
 
 ### Replacing AddForceAtLocation()
@@ -262,4 +190,5 @@ Each wheel calls this. After each wheels has updated the {{TotalForce:vector}} a
 * {{Offset:vector:l}} = {{WorldPosition:vector:f}} - {{CenterOfMassWorld:vector}}
 * {{RotationalVelocity:vector:l}} = CrossProduct({{AngularVelocity:vector}}, {{Offset:vector}})
 * Return {{VehicleVelocity:vector}} + {{RotationalVelocity:vector:l}}
+
 

@@ -68,3 +68,11 @@ THEN try installing it on a site.
 
 {{EnginePower:float}} and then {{AnotherTest:string}} and {{EnginePower:float}} tada
 {{EnginePower}} hello
+
+
+Rendering Variables with Snippets. 
+
+2 phases. 
+1. Collect all definitions
+2. Render all variables. 
+EntityDefinitionProcessor is doing both at once. 
