@@ -77,3 +77,63 @@
 .entity-default:hover {
     color: #6c6c6c;
 }
+
+.entity-scope-l {
+    filter: brightness(1.5) saturate(.5);
+}
+
+.entity-scope-f {
+    filter: brightness(.7) saturate(.5);
+}
+
+.entity-popup {
+    position: absolute;
+    z-index: 1000;
+
+    background: #1e1e1e;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 6px;
+
+    padding: 12px;
+    width: 300px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+
+.entity-popup-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+.entity-popup-meta {
+    opacity: 0.7;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+
+.entity-go-definition {
+    margin-top: 10px;
+}
+
+
+.entity-definition-highlight {
+    animation: definition-flash 1.5s;
+}
+
+
+@keyframes definition-flash {
+
+    0% {
+        background-color: rgba(255,255,0,0.5);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+
+}

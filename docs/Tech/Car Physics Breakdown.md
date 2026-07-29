@@ -155,7 +155,7 @@ FixedPhysicsStep()
 	| {{RestSuspensionLength:float}}     | Normal Wheel Extension |         |
 	| {{SnowSinkAmount:float}}           | Snow Compression       |         |
 	| {{SuspensionTraceDistance:float}}  | Raycast Length         |         |
-=== "Force Accumulators"
+=== "Force Accumulators (In Vehicle BP)"
 	
 	### Force Accumulators
 	
@@ -163,8 +163,8 @@ FixedPhysicsStep()
 	
 	| Name                       | Comments | Default |
 	| -------------------------- | -------- | ------- |
-	| {{TotalForce:vector}}      |          |         |
-	| {{TotalTorque:vector}}     |          |         |
+	| {{!TotalForce:vector:Cab, Force Accumulators:"Description blah blah"}}     |          |         |
+	| {{!TotalTorque:vector: Cab | Force Accumulators:"Total Torque To Apply"}}     |          |         |
 	| {{EngineForce:vector}}     |          |         |
 	| {{BrakeForce:vector}}      |          |         |
 	| {{SuspensionForce:vector}} |          |         |
@@ -234,12 +234,32 @@ FixedPhysicsStep()
 
 ***
 
-| Name | Comments | Default |
-| ---- | -------- | ------- |
-|      |          |         |
-|      |          |         |
+### Replacing AddForceAtLocation()
 
-| Name | Comments | Default |
-| ---- | -------- | ------- |
-|      |          |         |
-|      |          |         |
+**ApplyForceAtPoint({{Force:vector:f}}, {{WheelLocation:vector:f}})**. 
+
+Each wheel calls this. After each wheels has updated the {{TotalForce:vector}} and {{TotalTorque:vector}} of the **cab**, the **Cab** can integrate it into motion. 
+
+*  {{TotalForce:vector}} += {{Force:vector:f}}
+* {{LeverArm:vector:l}} = {{WheelLocation:vector:f}} - {{CenterOfMassWorld:vector}}
+* {{Torque:vector:l}} = CrossProduct({{LeverArm:vector:l}}, {{Force:vector:f}})
+* {{TotalTorque:vector}} += {{Torque:vector:l}}
+
+**Linear Motion**
+
+* {{Acceleration:vector}} = {{TotalForce:vector}} / {{VehicleMass:float}}
+* {{VehicleVelocity:vector}} += {{Acceleration:vector}} * {{FixedDelta:float}}
+
+**Rotational Motion**
+
+* {{AngularAcceleration:vector}} = {{TotalTorque:vector}} / {{MomentOfInertia:vector}} 
+* {{AngularVelocity:vector}} += {{AngularAcceleration}} * {{FixedDelta:float}}
+
+### Because we can't use GetVelocityAtPoint() Without Chaos, we need to replace it. 
+
+#### GetVelocityAtPoint({{WorldPosition:vector:f}}) (Owned by Wheel Comp)
+
+* {{Offset:vector:l}} = {{WorldPosition:vector:f}} - {{CenterOfMassWorld:vector}}
+* {{RotationalVelocity:vector:l}} = CrossProduct({{AngularVelocity:vector}}, {{Offset:vector}})
+* Return {{VehicleVelocity:vector}} + {{RotationalVelocity:vector:l}}
+
