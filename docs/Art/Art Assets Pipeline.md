@@ -7,6 +7,7 @@
 | Material Instances | MI_    |          |      |        |
 | Textures           | T_     |          |      |        |
 | Static Mesh        | SM_    |          |      |        |
+
 **Grouping** is optional. For example, if you are naming a Diner asset, grouping should be Building and the name should be Diner. If you have multiple diners, you should include the number. your asset would likely be named:
 SM_Building_Diner_02
 
