@@ -1,7 +1,8 @@
-Passenger are the core of progression within Safe Travels, as well as the main catalyst for suspense within the game. Every passenger's route will use the same formula for completion, but each offer their own unique spin on the gameplay loop and core mechanics in order to create their own individualized experience
+Passenger are the core of progression within Safe Travels, as well as the main catalyst for suspense within the game. Every passenger's route will use the same formula for completion, but each offer their own unique spin on the gameplay loop and core mechanics in order to create their own individualized experience; because of this, each procedure for how to successfully transport each passenger will always be changing, and specific details about each passenger will need to be deduced by the player using their mirror and the passenger's dialogue.
 
 
 # Routes
+
 A basic passenger route with no interreference will go as follows.
 
 1. Players will receive a call from the hotel detailing a passenger and their location on the map.
@@ -13,9 +14,11 @@ A basic passenger route with no interreference will go as follows.
 
 The failure of a route is determined by a three strike system. If the player makes three negative decisions during the trip, the route will be considered a failure and the passenger will exit the vehicle. 
 
-"Negative decisions" could be considered a wrong turn, speeding, driving to slow, driving on the wrong side of the rode, not adhering to red lights, etc.
+"Negative decisions" could be considered a wrong turn, speeding, driving to slow, driving on the wrong side of the rode, not adhering to traffic lights, etc.
 
-What determines a "wrong decision" is determined by each passenger and in some cases will need to be deduced by the player. 
+What determines a "wrong decision" is subject to change depending on each passenger and thier personal tastes. 
+
+
 
 # Mirror
 
@@ -26,12 +29,8 @@ Your mirror is located at the top of your screen and can be enhanced by **holdin
 
 While enhanced, the mirror will take up a majority of the screen, blocking the players view of the road. 
 
-While enhanced, your car steering wheel is locked to the direction it was turned at until unenhanced.
+While enhanced, your car steering wheel is locked its current angle until you unenhance.
 
 While enhanced, you are able to use your mouse to look around the passenger seat from the perspective of the rearview mirror.
 
 
-
-# Passengers 
-
-Passengers each hold thier own quirk, personilized tastes and threats they pose. 
