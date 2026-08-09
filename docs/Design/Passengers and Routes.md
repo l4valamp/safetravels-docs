@@ -29,7 +29,7 @@ Your mirror is located at the top of your screen and can be enhanced by **holdin
 
 While enhanced, the mirror will take up a majority of the screen, blocking the players view of the road. 
 
-While enhanced, your car steering wheel is locked its current angle until you unenhance.
+While enhanced, your car steering wheel is locked its current angle until you unenhanced.
 
 While enhanced, you are able to use your mouse to look around the passenger seat from the perspective of the rearview mirror.
 
