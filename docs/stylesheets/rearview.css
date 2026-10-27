@@ -116,11 +116,12 @@
 :focus-visible { outline: 2px solid var(--rv-yellow); outline-offset: 3px; }
 /* One shared Base renders these cards automatically; note authors only edit properties. */
 .md-typeset ul.rv-page-cards:not([hidden]) {
-  display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; margin: 1rem 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem; padding: 0; margin: 1rem 0;
   list-style: none;
 }
 .md-typeset .rv-page-card {
-  width: var(--rv-card-width); max-width: 100%; margin: 0; padding: 0;
+  min-width: 0; margin: 0; padding: 0;
   border: 1px solid var(--rv-rule); background: var(--rv-panel);
 }
 .md-typeset .rv-page-card__link { display: block; height: 100%; color: var(--rv-paper); }
@@ -139,6 +140,12 @@
   font-size: .8rem; line-height: 1.4; height: 2.8em; margin: .7rem;
 }
 .rv-page-cards-empty { color: var(--rv-muted); font-family: var(--rv-mono); font-size: .7rem; }
+@media (max-width: 37.5em) {
+  .md-typeset ul.rv-page-cards:not([hidden]) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 23.4375em) {
+  .md-typeset ul.rv-page-cards:not([hidden]) { grid-template-columns: minmax(0, 1fr); }
+}
 @media (max-width: 44.984375em) {
   .md-content__inner { padding: .8rem; }
   .md-typeset h1 { font-size: 1.8rem; }

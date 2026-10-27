@@ -1,0 +1,6 @@
+filters:
+  and:
+    - Categories.contains("Passengers")
+views:
+  - type: cards
+    name: View
