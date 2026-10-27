@@ -1,0 +1,10 @@
+{
+  "docs_dir": "docs",
+  "plugins": [
+    {
+      "databaseview": {
+        "snapshot_manifest": "database-snapshots/manifest.yml"
+      }
+    }
+  ]
+}

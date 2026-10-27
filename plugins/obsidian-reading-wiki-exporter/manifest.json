@@ -1,0 +1,9 @@
+{
+  "id": "reading-wiki-exporter",
+  "name": "Reading Wiki Exporter",
+  "version": "1.0.0",
+  "minAppVersion": "1.10.0",
+  "description": "Automatically export Obsidian Bases results for the Reading Wiki MkDocs site.",
+  "author": "Reading Wiki",
+  "isDesktopOnly": true
+}

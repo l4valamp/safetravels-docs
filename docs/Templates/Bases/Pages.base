@@ -1,0 +1,18 @@
+filters:
+  and:
+    - file.hasTag("page")
+    - '!file.name.contains("template")'
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - Categories
+  - type: table
+    name: ByCategory
+    filters:
+      and:
+        - Categories.contains(this.file.name.toString())
+    order:
+      - file.name
+      - Categories

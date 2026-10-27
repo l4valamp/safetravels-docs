@@ -24,3 +24,8 @@ docs/.obsidian/workspace.json
 docs/.obsidian/workspace-mobile.json
 docs/.obsidian/cache/
 docs/.trash/
+
+# Installed companion and transient Obsidian export requests
+docs/.obsidian/plugins/reading-wiki-exporter/
+*.egg-info/
+build/

@@ -1,0 +1,2 @@
+# Keep exported snapshot hashes stable across Windows and Linux checkouts.
+database-snapshots/** text eol=lf

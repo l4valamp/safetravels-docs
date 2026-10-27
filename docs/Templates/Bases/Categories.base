@@ -1,0 +1,7 @@
+filters:
+  and:
+    - file.hasTag("category")
+    - '!file.name.contains("Template")'
+views:
+  - type: table
+    name: Table

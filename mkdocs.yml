@@ -2,6 +2,9 @@
 
 site_name: Safe Travels Documentation
 site_url: https://l4valamp.github.io/safetravels-docs/
+docs_dir: docs
+exclude_docs: |
+  /Templates/**
 
 theme:
   name: material
@@ -20,13 +23,15 @@ theme:
 plugins:
   - search
   - awesome-pages #this is a plugin it doesnt recognize but works fine
-  - roamlinks #this too
+  - databaseview:
+      auto_export: !ENV [OBSIDIAN_AUTO_EXPORT, true]
+      committed_export: !ENV [OBSIDIAN_COMMITTED_EXPORT, false]
+      snapshot_manifest: database-snapshots/manifest.yml
   - entity #this is our custom plugin for variables
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.tabbed:
      alternate_style: true
   - pymdownx.snippets

@@ -8,13 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "afe9179e207c4af2",
+            "id": "adfbed3f33842ebd",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "docs/Team Folders/Design/Passengers/The Tourist.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "The Tourist"
             }
           }
         ]
@@ -37,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -74,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "92a08c060f3267e8",
@@ -176,6 +182,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "afe9179e207c4af2",
-  "lastOpenFiles": []
+  "active": "adfbed3f33842ebd",
+  "lastOpenFiles": [
+    "docs/Team Folders/Design/Passengers/The Tourist.md",
+    "docs/Team Folders/Design/Passengers and Routes.md",
+    "docs/Team Folders/Design/Passengers",
+    "docs/Team Folders/Tech/Passenger Tech Breakdown.md",
+    "docs/Team Folders/Tech/Car Physics Breakdown.md",
+    "docs/Team Folders/Tech/Making MKDocs Plugins.md",
+    "docs/Team Folders/Tech/Mesh Terrain.md",
+    "Untitled.md",
+    "docs/Team Folders/Tech/Tech Q1 Home.md",
+    "docs/Team Folders/Tech/User Settings.md"
+  ]
 }

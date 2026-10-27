@@ -1,6 +1,7 @@
 README.md
 pyproject.toml
 mkdocs_entity_plugin/__init__.py
+mkdocs_entity_plugin/extension.py
 mkdocs_entity_plugin/plugin.py
 mkdocs_entity_plugin.egg-info/PKG-INFO
 mkdocs_entity_plugin.egg-info/SOURCES.txt
