@@ -4,10 +4,6 @@ tags:
   - category
 Categories:
 ---
-### Pages In Team Category
-![[pages.base#ByCategory]]
-
-***
 
 ### General Guidelines
 
@@ -36,4 +32,7 @@ Categories:
 | Non-Widget UI Blueprints | UI\_BP_  | N/A    |
 | Widget Blueprints        | UI\_WBP_ | N/A    |
 
+***
 
+### Pages In Team Category
+![[pages.base#ByCategory]]

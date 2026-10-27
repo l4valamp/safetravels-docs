@@ -1,3 +1,8 @@
+---
+tags:
+  - page
+Categories: "Tech"
+---
 
 - A passenger class is a child of BP_PassengerBase
 - Each passenger has BPC_Passengerbrain. This listens to the player's BPC_NavData.

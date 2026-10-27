@@ -1,3 +1,8 @@
+---
+tags:
+  - page
+Categories: "Design"
+---
 The town Safe Travels takes place in takes the shape of an open world map divided into different sections. Each section will house different points of interests that will serve as the setting for the many of the games pick up and drop off locations. 
 
 

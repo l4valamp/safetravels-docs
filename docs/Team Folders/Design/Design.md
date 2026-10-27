@@ -4,7 +4,8 @@ tags:
   - category
 Categories:
 ---
-### Pages In Team Category
-![[pages.base#ByCategory]]
 
 ***
+
+### Pages In Team Category
+![[pages.base#ByCategory]]

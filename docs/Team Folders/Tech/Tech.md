@@ -4,10 +4,6 @@ tags:
   - "#category"
   - teampage
 ---
-### Pages In Team Category
-![[pages.base#ByCategory]]
-
-***
 
 ### Major Systems:
 
@@ -18,3 +14,8 @@ The [Car Physics Breakdown](Car Controller) is difficult because it uses Unreal'
 There must be one flexible [[Passenger Manager]] overseeing passenger flow (announcing new passengers when the old ones are gone.)
 
 [[User Settings]] (Volume, Sensitivity, etc.)
+
+***
+
+### Pages In Team Category
+![[pages.base#ByCategory]]

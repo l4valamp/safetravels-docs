@@ -1,3 +1,8 @@
+---
+tags:
+  - page
+Categories: "Tech"
+---
 https://www.youtube.com/watch?v=JzQrUAVPmr4
 
 ### Lead Defines Files

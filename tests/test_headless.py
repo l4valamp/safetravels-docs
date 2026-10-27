@@ -16,7 +16,7 @@ class HeadlessTest(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.docs = self.root / 'docs'
         (self.docs / 'Templates/Bases').mkdir(parents=True)
-        (self.docs / 'Team Pages').mkdir()
+        (self.docs / 'Team Folders/Tech').mkdir(parents=True)
         self.base = self.docs / 'Templates/Bases/Pages.base'
         self.base.write_text('''filters:
   and:
@@ -33,7 +33,7 @@ views:
         - Categories.contains(this.file.name.toString())
     order: [file.name, Categories]
 ''', encoding='utf8')
-        (self.docs / 'Team Pages/Tech.md').write_text('# Tech\n![[pages.base#ByCategory]]\n', encoding='utf8')
+        (self.docs / 'Team Folders/Tech/Tech.md').write_text('# Tech\n![[pages.base#ByCategory]]\n', encoding='utf8')
         (self.docs / 'index.md').write_text('# Home\n![[Pages.base]]\n', encoding='utf8')
         self.note('Physics', 'Tech')
         self.note('Textures', 'Art')
@@ -51,16 +51,16 @@ plugins:
 
     def test_category_context_matches_native_export_shape(self):
         engine = HeadlessBases(self.docs)
-        self.assertEqual(engine.render('Team Pages/Tech.md', 'pages.base', 'ByCategory'),
-                         '| file name | Categories |\n| --- | --- |\n| [Physics](../Physics.md) | [[Tech]] |\n')
-        art = engine.render('Team Pages/Art.md', 'pages.base', 'ByCategory')
+        self.assertEqual(engine.render('Team Folders/Tech/Tech.md', 'pages.base', 'ByCategory'),
+                         '| file name | Categories |\n| --- | --- |\n| [Physics](../../Physics.md) | [[Tech]] |\n')
+        art = engine.render('Team Folders/Art/Art.md', 'pages.base', 'ByCategory')
         self.assertIn('[Textures]', art)
         self.assertNotIn('[Physics]', art)
 
     def test_new_edits_and_deletions_build_without_exporter_or_snapshots(self):
         def run():
             build(load_config(str(self.root / 'mkdocs.yml'), strict=True))
-            return (self.root / 'site/Team Pages/Tech/index.html').read_text(encoding='utf8')
+            return (self.root / 'site/Team Folders/Tech/Tech/index.html').read_text(encoding='utf8')
         self.assertIn('Physics', run())
         self.note('New page', 'Tech')
         (self.docs / 'Physics.md').unlink()
@@ -75,7 +75,7 @@ plugins:
         self.base.write_text(self.base.read_text().replace('file.hasTag("page")', 'file.hasTag("missing")').replace(
             'Categories.contains(this.file.name.toString())', 'today() > date("2020-01-01")'), encoding='utf8')
         with self.assertRaisesRegex(PluginError, 'does not support'):
-            HeadlessBases(self.docs).render('Team Pages/Tech.md', 'Pages.base', 'ByCategory')
+            HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
 
     def test_formulas_sorting_grouping_and_unknown_views_fail_explicitly(self):
         original = self.base.read_text()
@@ -102,7 +102,7 @@ plugins:
         (self.docs / 'Code.md').write_text('---\nCategories: Tech\n---\n```\n#page\n```\n', encoding='utf8')
         (self.docs / '.hidden').mkdir()
         (self.docs / '.hidden/Secret.md').write_text('#page\n', encoding='utf8')
-        output = HeadlessBases(self.docs).render('Team Pages/Tech.md', 'Pages.base', 'ByCategory')
+        output = HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
         self.assertIn('[Inline]', output)
         self.assertNotIn('[Code]', output)
         self.assertNotIn('Secret', output)
@@ -110,7 +110,7 @@ plugins:
     def test_list_category_is_rejected_instead_of_guessing_link_semantics(self):
         (self.docs / 'Physics.md').write_text('---\ntags: [page]\nCategories: ["[[Tech]]"]\n---\n', encoding='utf8')
         with self.assertRaisesRegex(PluginError, 'must be Text'):
-            HeadlessBases(self.docs).render('Team Pages/Tech.md', 'Pages.base', 'ByCategory')
+            HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
 
     def test_recursive_boolean_filters(self):
         predicate = compile_filter({'or': ['file.hasTag("page")', {'not': ['file.name.contains("hide")']}]})

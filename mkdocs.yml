@@ -9,11 +9,12 @@ exclude_docs: |
 
 # Team landing pages are the main navigation; other notes remain linked/searchable.
 nav:
-  - Art: Team Pages/Art.md
-  - Design: Team Pages/Design.md
-  - Tech: Team Pages/Tech.md
-  - Sound: Team Pages/Sound.md
-  - UI: Team Pages/UI.md
+  - Home: index.md
+  - Art: Team Folders/Art/Art.md
+  - Design: Team Folders/Design/Design.md
+  - Tech: Team Folders/Tech/Tech.md
+  - Sound: Team Folders/Sound/Sound.md
+  - UI: Team Folders/UI/UI.md
 
 theme:
   name: material

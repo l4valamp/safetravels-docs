@@ -1,3 +1,8 @@
+---
+tags:
+  - page
+Categories: "Tech"
+---
 EVERYTHING I WILL FOCUS ON THIS QUARTER (Greta)
 
 - Artist tool for authoring chunks of an environment that can be moved around a grander landscape

@@ -49,8 +49,8 @@ settings. If it is still active in an already-open Obsidian window, disable
 
 ## Visual theme
 
-The five main navigation tabs link directly to the team landing pages in
-`docs/Team Pages`. Other notes, including reusable snippets, stay available
+Home and the five team navigation tabs link directly to the homepage and
+the landing notes inside their matching `docs/Team Folders` directories. Other notes, including reusable snippets, stay available
 through existing links and search without cluttering the navigation.
 
 Rearview uses Material's existing slate palette, navigation, search, tabs and

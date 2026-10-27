@@ -3,6 +3,18 @@ tags:
   - "#page"
 Categories: "[[All Team]]"
 ---
+## Create a page
+
+Create a note in the appropriate team folder, then run **Templates: Insert template**
+from the command palette and choose **Page Template**. It adds the `page` tag,
+a title, and a **Categories** Text property. Creating a blank note alone does not
+apply the template.
+
+Enter category keywords as comma-separated text, for example `Tech, vehicles, physics`.
+Include a team name (`Art`, `Design`, `Tech`, `Sound`, `UI`, or `All Team`) to list
+the page in that team's category table. Existing category links such as `[[Tech]]`
+also work. Keep Categories as Text rather than changing it to a List.
+
 ## Pipeline Explanation 
 
 ``` mermaid

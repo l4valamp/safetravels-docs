@@ -1,6 +1,7 @@
 ---
 tags:
-  - "#category"
+- '#category'
+- page
 Categories: "[[Tech]]"
 ---
 ### Pages In Category

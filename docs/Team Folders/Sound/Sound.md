@@ -4,10 +4,6 @@ tags:
   - category
 Categories:
 ---
-### Pages In Team Category
-![[pages.base#ByCategory]]
-
-***
 sound should sound like sound
 
 use .wav
@@ -23,3 +19,8 @@ use .wav
 ^ line
 
 [[TextureAssetNames]]
+
+***
+
+### Pages In Team Category
+![[pages.base#ByCategory]]

@@ -4,11 +4,6 @@ filters:
     - '!file.name.contains("template")'
 views:
   - type: table
-    name: Table
-    order:
-      - file.name
-      - Categories
-  - type: table
     name: ByCategory
     filters:
       and:

@@ -1,5 +1,7 @@
 ---
 tags:
-  - "#page"
-Categories:
+  - page
+Categories: ""
 ---
+
+# {{title}}

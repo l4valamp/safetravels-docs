@@ -1,3 +1,8 @@
+---
+tags:
+  - page
+Categories: "Art"
+---
 
 # Asset Naming
 

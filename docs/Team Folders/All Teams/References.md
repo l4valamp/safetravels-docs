@@ -1,6 +1,7 @@
 ---
 tags:
-  - "#category"
+- '#category'
+- page
 Categories: "[[All Team]]"
 ---
 ### Pages In Category
