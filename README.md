@@ -3,7 +3,6 @@
 Write in Obsidian, sync to GitHub, and let GitHub Actions publish the website.
 Teammates do not need Python, MkDocs, an exporter, or local build commands.
 
-- [Team setup and daily workflow](docs/Team%20Guide.md)
 - Website: https://l4valamp.github.io/safetravels-docs/
 - Publishing branch: `main`
 
@@ -49,6 +48,10 @@ settings. If it is still active in an already-open Obsidian window, disable
 **Reading Wiki Exporter** once; teammates never need to install it.
 
 ## Visual theme
+
+The five main navigation tabs link directly to the team landing pages in
+`docs/Team Pages`. Other notes, including reusable snippets, stay available
+through existing links and search without cluttering the navigation.
 
 Rearview uses Material's existing slate palette, navigation, search, tabs and
 callouts. `docs/stylesheets/rearview.css` contains the color tokens and visual

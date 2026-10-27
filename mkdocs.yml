@@ -7,6 +7,14 @@ docs_dir: docs
 exclude_docs: |
   /Templates/**
 
+# Team landing pages are the main navigation; other notes remain linked/searchable.
+nav:
+  - Art: Team Pages/Art.md
+  - Design: Team Pages/Design.md
+  - Tech: Team Pages/Tech.md
+  - Sound: Team Pages/Sound.md
+  - UI: Team Pages/UI.md
+
 theme:
   name: material
   custom_dir: overrides
