@@ -11,5 +11,5 @@ Categories:
 
 ***
 
-### Pages In Team Category
+### Art pages
 ![[pages.base#ByCategory]]

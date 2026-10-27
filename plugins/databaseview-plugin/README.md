@@ -1,6 +1,6 @@
 ﻿# MkDocs databaseview plugin
 
-Safe Travels uses `headless: true`: every server-side build generates tables
+Safe Travels uses `headless: true`: every server-side build generates tables and cards
 from the committed notes and `.base` files. There is no dependency on desktop
 Obsidian, local builds, generated snapshots, or installed Obsidian plugins.
 
@@ -20,6 +20,11 @@ plugins:
 - Table views with `order` columns (`file.name` and note properties), display names,
   and column widths (widths are presentation-only and ignored on the website).
 - Stable rows ordered by case-insensitive filename, then path; empty tables.
+- Cards views displaying only `file.name`, with a remote HTTP(S) note-image
+  property, `cardSize`, `imageAspectRatio`, and `imageFit` (cover or contain).
+  Missing or invalid image URLs use the default Rearview screenshot. Empty
+  categories show a short message. Native Obsidian Cards uses the same Base;
+  the website applies uniform dimensions and two-line title ellipses through CSS.
 - Case-insensitive Base lookup with ambiguity rejection.
 
 Unsupported expressions/settings stop the build. No `eval` or arbitrary code

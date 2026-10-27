@@ -26,18 +26,21 @@ local Python plugins from this repository. Build permissions are read-only;
 only the deploy job receives Pages and OIDC write permissions. Existing Git
 history and the old `gh-pages` branch are retained.
 
-## How tables are published
+## How database views are published
 
-`databaseview.headless: true` generates the current Bases table views directly
+`databaseview.headless: true` generates the current Bases table and card views directly
 from committed notes on every build. No snapshot files or Obsidian installation
 are required. Category membership uses the existing Text `Categories` property
-and `this.file.name` context. All eight existing tables matched the last native
-Obsidian export exactly during validation.
+and `this.file.name` context. Team pages share the `Pages.base#ByCategory` card
+view. Cards show only the page title and its `header image url` cover; the
+basic page template supplies the default game screenshot. Card titles reserve
+two lines and truncate longer names with an ellipsis; the full name remains
+available to screen readers and on hover.
 
 This is a deliberately limited server-side adapter, not all of Obsidian Bases.
 It supports the current tag/name filters, boolean filter groups, Text category
-containment, table columns, and display names. Rows are ordered by note name.
-Formulas, custom sorts, grouping, summaries, limits, non-table views, and list
+containment, table columns, display names, and title/image cards. Rows are ordered by note name.
+Formulas, custom sorts, grouping, summaries, limits, other view types, and list
 category comparisons fail clearly instead of silently changing results. Have a
 maintainer extend and test the adapter before adding those Base features.
 Details: [plugin README](plugins/databaseview-plugin/README.md).

@@ -2,6 +2,7 @@
 tags:
   - page
 Categories: "Design"
+header image url: "https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png"
 ---
 The town Safe Travels takes place in takes the shape of an open world map divided into different sections. Each section will house different points of interests that will serve as the setting for the many of the games pick up and drop off locations. 
 

@@ -11,5 +11,5 @@ Categories:
 
 ***
 
-### Pages In Team Category
+### All Team pages
 ![[pages.base#ByCategory]]

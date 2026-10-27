@@ -4,5 +4,5 @@ tags:
   - category
 Categories:
 ---
-### Pages In Team Category
+### {{title}} pages
 ![[pages.base#ByCategory]]

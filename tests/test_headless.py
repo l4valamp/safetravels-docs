@@ -1,12 +1,15 @@
 from pathlib import Path
 import tempfile
 import unittest
+from html.parser import HTMLParser
+import yaml
 
 from mkdocs.commands.build import build
 from mkdocs.config import load_config
 from mkdocs.exceptions import PluginError
 
 from mkdocs_databaseview_plugin.headless import HeadlessBases, compile_filter
+from mkdocs_databaseview_plugin.page_cards import DEFAULT_HEADER_IMAGE
 
 
 class HeadlessTest(unittest.TestCase):
@@ -116,3 +119,65 @@ plugins:
         predicate = compile_filter({'or': ['file.hasTag("page")', {'not': ['file.name.contains("hide")']}]})
         self.assertTrue(predicate({'tags': [], 'name': 'visible'}, 'Tech'))
         self.assertFalse(predicate({'tags': [], 'name': 'hide'}, 'Tech'))
+
+    def cards(self, **settings):
+        definition = yaml.safe_load(self.base.read_text())
+        definition['views'][-1].update(type='cards', order=['file.name'],
+                                      image='note.header image url', **settings)
+        self.base.write_text(yaml.safe_dump(definition), encoding='utf8')
+
+    def test_cards_filter_images_escape_titles_and_have_no_table_properties(self):
+        self.cards(cardSize=220, imageAspectRatio=16 / 9, imageFit='cover')
+        self.note('A very long page title about vehicles & physics and how to drive them', 'Tech')
+        path = self.docs / 'Physics.md'
+        path.write_text(path.read_text().replace('Categories:',
+            'header image url: "https://example.test/header.png?x=1&y=2"\nCategories:'), encoding='utf8')
+        output = HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
+        self.assertIn('https://example.test/header.png?x=1&amp;y=2', output)
+        self.assertIn(DEFAULT_HEADER_IMAGE, output)
+        self.assertIn('vehicles &amp; physics', output)
+        self.assertNotIn('Textures', output)
+        self.assertNotIn('Categories', output)
+        self.assertNotIn('file name', output)
+        self.assertNotIn('<table', output)
+        self.assertEqual(output.count('class="rv-page-card"'), 2)
+        path.write_text(path.read_text().replace('https://example.test/header.png?x=1&y=2',
+                                               'javascript:alert(1)'), encoding='utf8')
+        output = HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
+        self.assertNotIn('javascript:', output)
+        self.assertEqual(output.count(DEFAULT_HEADER_IMAGE), 2)
+
+    def test_cards_empty_and_invalid_settings_fail_clearly(self):
+        self.cards()
+        output = HeadlessBases(self.docs).render('Team Folders/UI/UI.md', 'Pages.base', 'ByCategory')
+        self.assertIn('No pages in this category yet.', output)
+        for settings in ({'cardSize': -1}, {'imageAspectRatio': 0}, {'imageFit': 'invalid'},
+                         {'cardSize': True}):
+            with self.subTest(settings=settings):
+                self.cards(**settings)
+                with self.assertRaisesRegex(PluginError, 'does not support'):
+                    HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
+
+    def test_built_cards_link_to_published_pages_for_both_url_layouts(self):
+        self.cards()
+        class CardLinks(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.hrefs = []
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if tag == 'a' and attrs.get('class') == 'rv-page-card__link':
+                    self.hrefs.append(attrs['href'])
+        for directory_urls, site_url, expected in [
+            (True, 'https://example.test/safetravels-docs/', '/safetravels-docs/Physics/'),
+            (False, 'https://example.test/safetravels-docs/', '/safetravels-docs/Physics.html'),
+            (True, '', '../../../Physics/'),
+            (False, '', '../../Physics.html'),
+        ]:
+            with self.subTest(directory_urls=directory_urls, site_url=site_url):
+                config = load_config(str(self.root / 'mkdocs.yml'), strict=True,
+                                     use_directory_urls=directory_urls, site_url=site_url)
+                build(config)
+                output = self.root / ('site/Team Folders/Tech/Tech/index.html' if directory_urls
+                                      else 'site/Team Folders/Tech/Tech.html')
+                parser = CardLinks(); parser.feed(output.read_text(encoding='utf8'))
+                self.assertEqual(parser.hrefs, [expected])

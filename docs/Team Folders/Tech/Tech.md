@@ -17,5 +17,5 @@ There must be one flexible [[Passenger Manager]] overseeing passenger flow (anno
 
 ***
 
-### Pages In Team Category
+### Tech pages
 ![[pages.base#ByCategory]]

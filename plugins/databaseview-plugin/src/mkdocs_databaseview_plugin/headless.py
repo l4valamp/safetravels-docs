@@ -4,12 +4,15 @@ This is not an implementation of the Obsidian expression language. Unknown
 syntax fails the build, even when a filter would otherwise match no notes.
 """
 from pathlib import Path
+import math
 import posixpath
 import re
 from urllib.parse import quote
 
 import yaml
 from mkdocs.exceptions import PluginError
+
+from .page_cards import render_page_cards
 
 
 def unsupported(value):
@@ -100,7 +103,7 @@ class HeadlessBases:
         self.bases = [file for file in self.vault.rglob('*.base')
                       if not any(part.startswith('.') for part in file.relative_to(self.vault).parts)]
 
-    def render(self, page, base, view_name):
+    def render(self, page, base, view_name, card_href=None):
         relative = posixpath.normpath(posixpath.join(posixpath.dirname(page), base))
         exact = [file for file in self.bases if file.relative_to(self.vault).as_posix().casefold() in (relative.casefold(), base.casefold())]
         candidates = exact or [file for file in self.bases if file.name.casefold() == Path(base).name.casefold()]
@@ -122,10 +125,13 @@ class HeadlessBases:
         if len(selected) != 1:
             raise PluginError(f'{base}: view missing or ambiguous: {view_name}')
         view = selected[0]
+        view_type = view.get('type')
+        allowed = {'type', 'name', 'filters', 'order'}
+        allowed |= {'image', 'imageFit', 'imageAspectRatio', 'cardSize'} if view_type == 'cards' else {'columnSize'}
         for key in view:
-            if key not in ('type', 'name', 'filters', 'order', 'columnSize'):
+            if key not in allowed:
                 unsupported(f'{base}: view setting {key}')
-        if view.get('type') != 'table':
+        if view_type not in ('table', 'cards'):
             unsupported(f'{base}: view type {view.get("type")}')
         global_filter = compile_filter(definition.get('filters'))
         view_filter = compile_filter(view.get('filters'))
@@ -137,6 +143,27 @@ class HeadlessBases:
         properties = definition.get('properties') or {}
         if not isinstance(properties, dict):
             unsupported(f'{base}: properties')
+        if view_type == 'cards':
+            if columns != ['file.name']:
+                unsupported(f'{base}: cards display only file.name')
+            image = view.get('image', 'note.header image url')
+            if not isinstance(image, str) or not image.startswith('note.') or not image[5:].strip():
+                unsupported(f'{base}: cards image must be a note property')
+            size = view.get('cardSize', 220)
+            aspect = view.get('imageAspectRatio', 16 / 9)
+            for label, value in [('cardSize', size), ('imageAspectRatio', aspect)]:
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+                    unsupported(f'{base}: invalid {label}')
+            fit = view.get('imageFit', 'cover')
+            if fit not in ('cover', 'contain'):
+                unsupported(f'{base}: invalid imageFit')
+            # The plugin supplies MkDocs' actual output URLs. The default also
+            # allows standalone rendering with the usual directory URL layout.
+            def default_href(path):
+                target = posixpath.splitext(path)[0] + '/'
+                current = posixpath.splitext(page)[0]
+                return quote(posixpath.relpath(target, current), safe='/') + '/'
+            return render_page_cards(rows, image[5:], card_href or default_href, size, aspect, fit)
         labels = []
         for column in columns:
             setting = properties.get(column, {})

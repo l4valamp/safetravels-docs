@@ -34,5 +34,5 @@ Categories:
 
 ***
 
-### Pages In Team Category
+### UI pages
 ![[pages.base#ByCategory]]

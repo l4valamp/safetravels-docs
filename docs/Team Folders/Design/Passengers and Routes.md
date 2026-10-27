@@ -2,6 +2,7 @@
 tags:
   - page
 Categories: "Design"
+header image url: "https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png"
 ---
 Passenger are the core of progression within Safe Travels, as well as the main catalyst for suspense within the game. Every passenger's route will use the same formula for completion, but each offer their own unique spin on the gameplay loop and core mechanics in order to create their own individualized experience; because of this, each procedure for how to successfully transport each passenger will always be changing, and specific details about each passenger will need to be deduced by the player using their mirror and the passenger's dialogue.
 

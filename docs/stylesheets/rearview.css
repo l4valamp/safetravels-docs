@@ -114,6 +114,31 @@
 .entity-popup { background: var(--rv-panel); color: var(--rv-paper); border-color: var(--rv-rule); border-radius: 0; max-width: calc(100vw - 2rem); }
 
 :focus-visible { outline: 2px solid var(--rv-yellow); outline-offset: 3px; }
+/* One shared Base renders these cards automatically; note authors only edit properties. */
+.md-typeset ul.rv-page-cards:not([hidden]) {
+  display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; margin: 1rem 0;
+  list-style: none;
+}
+.md-typeset .rv-page-card {
+  width: var(--rv-card-width); max-width: 100%; margin: 0; padding: 0;
+  border: 1px solid var(--rv-rule); background: var(--rv-panel);
+}
+.md-typeset .rv-page-card__link { display: block; height: 100%; color: var(--rv-paper); }
+.md-typeset .rv-page-card__link:hover { text-decoration: none; }
+.md-typeset .rv-page-card:hover, .md-typeset .rv-page-card:focus-within { border-color: var(--rv-yellow); }
+.rv-page-card__image {
+  display: block; width: 100%; aspect-ratio: var(--rv-card-aspect);
+  background: #514a3e; overflow: hidden;
+}
+.md-typeset .rv-page-card__image img {
+  display: block; width: 100%; height: 100%; object-fit: var(--rv-card-fit);
+}
+.rv-page-card__title {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; overflow-wrap: anywhere; text-overflow: ellipsis;
+  font-size: .8rem; line-height: 1.4; height: 2.8em; margin: .7rem;
+}
+.rv-page-cards-empty { color: var(--rv-muted); font-family: var(--rv-mono); font-size: .7rem; }
 @media (max-width: 44.984375em) {
   .md-content__inner { padding: .8rem; }
   .md-typeset h1 { font-size: 1.8rem; }

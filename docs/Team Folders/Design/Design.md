@@ -7,5 +7,5 @@ Categories:
 
 ***
 
-### Pages In Team Category
+### Design pages
 ![[pages.base#ByCategory]]

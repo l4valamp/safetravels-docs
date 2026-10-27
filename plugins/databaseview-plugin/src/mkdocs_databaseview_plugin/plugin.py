@@ -200,7 +200,8 @@ class DBViewPlugin(BasePlugin):
 
     def read_snapshot(self, page, match):
         if self.config['headless']:
-            return self.headless.render(page, match.group(1).strip(), match.group(2))
+            return self.headless.render(page, match.group(1).strip(), match.group(2),
+                                        card_href=lambda path: self.page_card_href(page, path))
         key = self.embed_key(match)
         entries = self.manifest.get(page, {})
         if not isinstance(entries, dict):
@@ -225,6 +226,16 @@ class DBViewPlugin(BasePlugin):
         if list(self.embeds_in_markdown(text)):
             raise PluginError(f"{page}: {path} still contains a .base embed; export the rendered table instead.")
         return text
+
+    def page_card_href(self, page, path):
+        target = self.notes.get(path.casefold())
+        current = self.notes.get(page.casefold())
+        if target is None or current is None:
+            raise PluginError(f'{page}: page card target is not published: {path}')
+        if self.site_url_path:
+            return self.site_url_path + '/' + target.url
+        href = posixpath.relpath(target.url, posixpath.dirname(current.url) or '.')
+        return href + ('/' if target.url.endswith('/') else '')
 
     def on_page_markdown(self, markdown, page, config, files):
         self.current_page = page.file.src_uri

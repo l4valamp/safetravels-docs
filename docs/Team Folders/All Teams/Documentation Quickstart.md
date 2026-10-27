@@ -2,6 +2,7 @@
 tags:
   - "#page"
 Categories: "[[All Team]]"
+header image url: "https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png"
 ---
 ## Create a page
 
@@ -14,6 +15,9 @@ Enter category keywords as comma-separated text, for example `Tech, vehicles, ph
 Include a team name (`Art`, `Design`, `Tech`, `Sound`, `UI`, or `All Team`) to list
 the page in that team's category table. Existing category links such as `[[Tech]]`
 also work. Keep Categories as Text rather than changing it to a List.
+
+Team pages display matching pages as image cards. Change **header image url** to
+customize your card image; the template supplies the default game screenshot.
 
 ## Pipeline Explanation 
 

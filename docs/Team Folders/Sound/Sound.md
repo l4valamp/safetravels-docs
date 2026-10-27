@@ -22,5 +22,5 @@ use .wav
 
 ***
 
-### Pages In Team Category
+### Sound pages
 ![[pages.base#ByCategory]]

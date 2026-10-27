@@ -2,6 +2,7 @@
 tags:
   - page
 Categories: "Tech"
+header image url: "https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png"
 ---
 
 - A passenger class is a child of BP_PassengerBase

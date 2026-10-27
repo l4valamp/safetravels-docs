@@ -3,11 +3,14 @@ filters:
     - file.hasTag("page")
     - '!file.name.contains("template")'
 views:
-  - type: table
+  - type: cards
     name: ByCategory
     filters:
       and:
         - Categories.contains(this.file.name.toString())
     order:
       - file.name
-      - Categories
+    image: note.header image url
+    imageFit: cover
+    imageAspectRatio: 1.7777777778
+    cardSize: 220
