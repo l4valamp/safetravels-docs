@@ -3,43 +3,52 @@
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: github-pages
+  group: github-pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      OBSIDIAN_AUTO_EXPORT: 'false'
-      OBSIDIAN_COMMITTED_EXPORT: 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
       - name: Validate plugins
         run: python -m unittest discover -s tests -v
       - name: Validate Obsidian exporter
         run: node --test plugins/obsidian-reading-wiki-exporter/exporter.test.js plugins/obsidian-reading-wiki-exporter/main.test.js
-      - name: Build from validated Obsidian snapshots
+      - name: Build directly from notes (no Obsidian or snapshots)
         run: python -m mkdocs build --strict
-      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
           path: site
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

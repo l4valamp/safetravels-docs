@@ -1,15 +1,43 @@
-# MkDocs databaseview plugin
+﻿# MkDocs databaseview plugin
 
-Publishes exported Obsidian Markdown tables in place of `.base` embeds and resolves in-page Obsidian wikilinks. No Bases expression evaluator is included.
+Safe Travels uses `headless: true`: every server-side build generates tables
+from the committed notes and `.base` files. There is no dependency on desktop
+Obsidian, local builds, generated snapshots, or installed Obsidian plugins.
 
 ```yaml
 plugins:
   - databaseview:
-      auto_export: true
-      snapshot_manifest: database-snapshots/manifest.yml
-      export_timeout: 90
+      headless: true
 ```
 
-The Obsidian companion creates snapshots and mappings automatically. MkDocs waits for a fresh export before building and verifies source and snapshot hashes. Requires the companion plugin enabled in the running local `docs` vault. See `database-snapshots/README.md` for setup and normal usage.
+## Supported team Bases subset
 
-For intentional manual/offline snapshots, omit `auto_export` or set it to `false`; the manifest must then already exist and map source page + exact embed to a Markdown snapshot. Missing snapshots stop either kind of build.
+- Visible Markdown files, YAML properties, and frontmatter/inline tags.
+- `file.hasTag("page")`, including nested tags; `file.name.contains("text")`.
+- `!`, and recursive `and`, `or`, `not` filter groups.
+- `Categories.contains(this.file.name.toString())`, with Categories stored as Text.
+- Global plus selected-view filters; default first view or exact named view.
+- Table views with `order` columns (`file.name` and note properties), display names,
+  and column widths (widths are presentation-only and ignored on the website).
+- Stable rows ordered by case-insensitive filename, then path; empty tables.
+- Case-insensitive Base lookup with ambiguity rejection.
+
+Unsupported expressions/settings stop the build. No `eval` or arbitrary code
+execution is used. Formulas, custom sorts, groups, summaries, limits, other view
+types, and list category comparisons require a maintainer change with tests.
+This is a supported subset, not a complete replica of Obsidian's query engine.
+See the official [Bases syntax](https://obsidian.md/help/bases/syntax) and
+[function reference](https://obsidian.md/help/bases/functions).
+
+Wikilinks, headings, aliases, image embeds/dimensions, and optional book cards
+are retained from the Reading Wiki implementation. Safe Travels keeps its
+existing Material theme and entity plugin.
+
+## Optional legacy modes
+
+The plugin also retains native snapshot modes for deliberate maintainer use:
+`auto_export: true` requests a live export from the companion in desktop Obsidian;
+`committed_export: true` validates previously committed native exports. With
+neither flag, manual snapshots can be mapped by `snapshot_manifest`.
+Do not combine those modes with `headless`. The team's normal workflow needs
+none of them. ReadingWiki itself was not modified.

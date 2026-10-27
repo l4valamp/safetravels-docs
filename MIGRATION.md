@@ -2,6 +2,38 @@
 
 ## Inspection on 2026-10-27
 
+**Current workflow:** the native-snapshot setup recorded below has been superseded
+for Safe Travels by `databaseview.headless: true`. See the root README and
+`docs/Team Guide.md` for current instructions. Teammates clone, open `docs`, enable
+Obsidian Git, and write/sync. No exporter, Python, or local build is required.
+ReadingWiki itself remains unchanged.
+
+The team adapter supports the limited table/filter subset used by the embedded
+category views. All eight tables matched the last native exports exactly, ignoring
+trailing whitespace. Unsupported features stop the build. The new, unembedded
+`docs/Bases/TechPages.base` cards view was left untouched; cards and folder filters
+would require adapter support before embedding it in a published note.
+
+Actions now validates pull requests and builds/deploys pushes to `main`, using a
+Pages artifact and separate minimal deployment permissions. Dependencies list
+direct packages and both local plugins. Existing notes, the theme, entity plugin,
+site URL, branches, and history are preserved. In-progress Art note edits and new
+Bases files were left untouched.
+
+The shared exporter enablement was removed. Native snapshots remain as historical
+artifacts and are not used by team builds. Already-running Obsidian windows may
+still export until the companion is disabled there. Personal Git plugin files
+and settings are ignored; credentials are never stored in the repository.
+
+Current validation: 26 Python tests and 9 JavaScript tests pass. A fresh virtual
+environment installed both local plugins as packaged wheels and passed dependency
+checks, tests, and a strict full-site build in an isolated copy with no `.git`,
+`.obsidian`, snapshots, or reference to ReadingWiki. This machine uses Windows
+and Python 3.14; the actual Ubuntu/Python 3.12 Actions run remains to be verified
+after review and push. No changes were pushed or remotely triggered by this work.
+
+The remaining sections record the initial inspection and native-export history.
+
 `C:\Users\Greta\Vaults\safetravels-docs` is a complete Git repository, including
 its `.git` history, MkDocs configuration, local entity plugin, and GitHub Actions
 workflow. This was a move of the whole repository, not only the Obsidian vault.

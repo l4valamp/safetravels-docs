@@ -1,74 +1,63 @@
-# Safe Travels Documentation
+﻿# Safe Travels Documentation
 
-Obsidian notes published with MkDocs Material at https://l4valamp.github.io/safetravels-docs/.
-The Obsidian vault is **docs/**; the parent folder is the Git repository.
+Write in Obsidian, sync to GitHub, and let GitHub Actions publish the website.
+Teammates do not need Python, MkDocs, an exporter, or local build commands.
 
-## Setup and preview
+- [Team setup and daily workflow](docs/Team%20Guide.md)
+- Website: https://l4valamp.github.io/safetravels-docs/
+- Publishing branch: `main`
 
-From this repository in PowerShell:
+## Maintainer setup on GitHub
+
+1. Give teammates write access to this repository (or use reviewed pull requests
+   if branch protection requires them). They need access before cloning/pushing.
+2. Under **Settings > Pages > Build and deployment**, choose **GitHub Actions**.
+3. Under **Settings > Actions > General**, allow the actions referenced by
+   `.github/workflows/deploy-docs.yml`. No personal access token or Pages secret
+   is needed: deployment uses GitHub's short-lived built-in token.
+4. If the `github-pages` environment restricts deployment branches, allow `main`.
+   Required reviewers will add a manual approval step; omit that requirement for
+   fully automatic publication.
+5. Review and commit this change, then push normally. A push to `main` runs the
+   build and deploys only if tests and the strict MkDocs build pass. Pull requests
+   run validation without deploying. Never force-push to resolve sync problems.
+
+The workflow runs on clean Ubuntu with Python 3.12 and Node 24. It installs both
+local Python plugins from this repository. Build permissions are read-only;
+only the deploy job receives Pages and OIDC write permissions. Existing Git
+history and the old `gh-pages` branch are retained.
+
+## How tables are published
+
+`databaseview.headless: true` generates the current Bases table views directly
+from committed notes on every build. No snapshot files or Obsidian installation
+are required. Category membership uses the existing Text `Categories` property
+and `this.file.name` context. All eight existing tables matched the last native
+Obsidian export exactly during validation.
+
+This is a deliberately limited server-side adapter, not all of Obsidian Bases.
+It supports the current tag/name filters, boolean filter groups, Text category
+containment, table columns, and display names. Rows are ordered by note name.
+Formulas, custom sorts, grouping, summaries, limits, non-table views, and list
+category comparisons fail clearly instead of silently changing results. Have a
+maintainer extend and test the adapter before adding those Base features.
+Details: [plugin README](plugins/databaseview-plugin/README.md).
+
+The native exporter source and historical snapshots remain for reference, but
+are not used for team publication. The companion is no longer enabled in shared
+settings. If it is still active in an already-open Obsidian window, disable
+**Reading Wiki Exporter** once; teammates never need to install it.
+
+## Optional developer checks
+
+These commands are for maintainers, not teammates:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe tools/install_obsidian_exporter.py
-```
-
-Open `docs` as the vault in desktop Obsidian 1.10 or newer. Enable Bases and
-**Reading Wiki Exporter** in Community plugins. Keep this vault open when building.
-Rerun the installer and toggle the companion off/on after updating its source or
-changing `docs_dir` or `snapshot_manifest`. The installer extracts those settings
-to `obsidian-export.json` because Obsidian cannot interpret MkDocs' Python YAML tags.
-
-```powershell
-.\.venv\Scripts\python.exe -m mkdocs serve
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+node --test plugins/obsidian-reading-wiki-exporter/exporter.test.js plugins/obsidian-reading-wiki-exporter/main.test.js
 .\.venv\Scripts\python.exe -m mkdocs build --strict
 ```
 
-Obsidian evaluates Bases filters, formulas, groups, and page context. The companion
-exports the results automatically; MkDocs requests a fresh export before building.
-Missing exports stop the build. Templates remain in the vault but are excluded
-from the published site. Note links, table views, and image embeds are supported;
-book cards are available in the plugin but are not enabled for this documentation.
-The existing entity syntax, Material theme, CSS, and JavaScript remain in place.
-
-## Publish with GitHub Actions
-
-1. In the repository's **Settings > Pages > Build and deployment**, choose
-   **GitHub Actions** as the source. This replaces branch-based publishing; the
-   existing `gh-pages` branch is left intact.
-2. With the `docs` vault open and the exporter enabled, run the strict local build.
-3. Review `git status` and `git diff`. Include the intended note moves, new notes,
-   configuration, plugin source, tools, tests, `obsidian-export.json`, and
-   `database-snapshots/` in your commit. Do not commit `.venv`, installed plugin
-   files, or `site/`. Review existing deletions before staging them.
-4. Commit and push normally to `main`. The **Deploy Documentation** workflow
-   validates the exports, builds the site, and deploys a Pages artifact. It never
-   force-pushes. You can also run the workflow manually from Actions.
-
-GitHub cannot run desktop Obsidian. CI therefore uses committed snapshots and
-checks their source-content fingerprint plus manifest and snapshot hashes.
-Editing, adding, deleting, or renaming a note or Base requires another local build
-and a commit containing both notes and refreshed snapshots. Windows/Linux checkout
-timestamps and CRLF/LF conversion do not invalidate the source fingerprint.
-Snapshot files use LF through `.gitattributes` to preserve export hashes.
-
-To test the same mode locally after a successful live build:
-
-```powershell
-$env:OBSIDIAN_AUTO_EXPORT = 'false'
-$env:OBSIDIAN_COMMITTED_EXPORT = 'true'
-try { .\.venv\Scripts\python.exe -m mkdocs build --strict }
-finally {
-  Remove-Item Env:OBSIDIAN_AUTO_EXPORT, Env:OBSIDIAN_COMMITTED_EXPORT
-}
-```
-
-## Tests
-
-```powershell
-node --test plugins/obsidian-reading-wiki-exporter/exporter.test.js plugins/obsidian-reading-wiki-exporter/main.test.js
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-```
-
-See [MIGRATION.md](MIGRATION.md) for the initial repository inspection and preserved
-working changes. Nothing is published by installing or building locally.
+See [MIGRATION.md](MIGRATION.md) for preserved content and validation details.

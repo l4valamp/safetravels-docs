@@ -1,5 +1,10 @@
 ﻿# Native Obsidian Bases snapshots
 
+**Legacy maintainer mode only.** Safe Travels now builds its current tables from
+notes in Actions with `databaseview.headless: true`. Teammates need none of these
+files or commands. Existing snapshots are historical artifacts. These instructions
+apply only if a maintainer deliberately switches back to native snapshot mode.
+
 The companion plugin evaluates each embedded Base inside Obsidian, with the
 embedding note as `this`. It exports all rows, groups, formulas, and summaries
 as static Markdown tables. MkDocs does not reinterpret Bases filters.

@@ -29,3 +29,12 @@ docs/.trash/
 docs/.obsidian/plugins/reading-wiki-exporter/
 *.egg-info/
 build/
+
+# Personal plugin installs/settings (including Git identity and auth preferences)
+docs/.obsidian/plugins/
+docs/.obsidian/community-plugins.json
+.env
+# Legacy native exports are retained in history but unused by headless publishing.
+database-snapshots/generated/
+database-snapshots/manifest.yml
+database-snapshots/state.json

@@ -83,10 +83,11 @@ class NoteLinksExtension(Extension):
 
 
 class DBViewPlugin(BasePlugin):
-    """Publish exported Obsidian tables without evaluating Bases expressions."""
+    """Publish native exports or explicitly supported headless team tables."""
 
     config_scheme = (
         ("auto_export", config_options.Type(bool, default=False)),
+        ("headless", config_options.Type(bool, default=False)),
         ("committed_export", config_options.Type(bool, default=False)),
         ("export_timeout", config_options.Type(int, default=90)),
         ("snapshot_manifest", config_options.Type(str, default="database-snapshots/manifest.yml")),
@@ -96,7 +97,9 @@ class DBViewPlugin(BasePlugin):
     def on_config(self, config):
         root = Path(config.config_file_path).resolve().parent
         self.manifest_path = (root / self.config["snapshot_manifest"]).resolve()
-        if not self.config["auto_export"]:
+        if self.config['headless'] and (self.config['auto_export'] or self.config['committed_export']):
+            raise PluginError('Headless mode cannot be combined with snapshot export modes.')
+        if not self.config["auto_export"] and not self.config['headless']:
             self.load_manifest()
         self.site_url_path = urlsplit(config.get("site_url") or "").path.rstrip("/")
         config["markdown_extensions"].append(NoteLinksExtension(self))
@@ -111,6 +114,10 @@ class DBViewPlugin(BasePlugin):
             raise PluginError("Database snapshot manifest must map page paths to embed/snapshot mappings.")
 
     def on_pre_build(self, config):
+        if self.config['headless']:
+            from .headless import HeadlessBases
+            self.headless = HeadlessBases(config['docs_dir'])
+            return
         if self.config["committed_export"]:
             if self.config["auto_export"]:
                 raise PluginError('Choose live auto_export or committed_export, not both.')
@@ -153,7 +160,7 @@ class DBViewPlugin(BasePlugin):
             self.note_names.setdefault(Path(file.src_uri).stem.casefold(), []).append(file)
         errors = []
         # Validate every published view before generating pages or deploying.
-        # Never substitute invented rows or fall back to a filter evaluator.
+        # Headless is an explicit mode, never a fallback for missing snapshots.
         for file in files.documentation_pages():
             if not file.abs_src_path:
                 continue
@@ -192,6 +199,8 @@ class DBViewPlugin(BasePlugin):
         return base + ("#" + view.strip() if view else "")
 
     def read_snapshot(self, page, match):
+        if self.config['headless']:
+            return self.headless.render(page, match.group(1).strip(), match.group(2))
         key = self.embed_key(match)
         entries = self.manifest.get(page, {})
         if not isinstance(entries, dict):

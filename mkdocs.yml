@@ -24,9 +24,7 @@ plugins:
   - search
   - awesome-pages #this is a plugin it doesnt recognize but works fine
   - databaseview:
-      auto_export: !ENV [OBSIDIAN_AUTO_EXPORT, true]
-      committed_export: !ENV [OBSIDIAN_COMMITTED_EXPORT, false]
-      snapshot_manifest: database-snapshots/manifest.yml
+      headless: true
   - entity #this is our custom plugin for variables
 
 markdown_extensions:

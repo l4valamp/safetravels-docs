@@ -1,0 +1,6 @@
+views:
+  - type: cards
+    name: View
+    filters:
+      and:
+        - file.inFolder("Team Folders/Tech")
