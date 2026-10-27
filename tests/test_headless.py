@@ -115,6 +115,20 @@ plugins:
         with self.assertRaisesRegex(PluginError, 'must be Text'):
             HeadlessBases(self.docs).render('Team Folders/Tech/Tech.md', 'Pages.base', 'ByCategory')
 
+    def test_literal_category_filter_builds_passenger_view(self):
+        self.base.write_text(self.base.read_text().replace(
+            'Categories.contains(this.file.name.toString())',
+            'Categories.contains("Passengers")'), encoding='utf8')
+        self.note('Passenger', 'Passengers')
+        output = HeadlessBases(self.docs).render('index.md', 'Pages.base', 'ByCategory')
+        self.assertIn('[Passenger]', output)
+        self.assertNotIn('[Physics]', output)
+        self.assertNotIn('[Textures]', output)
+        predicate = compile_filter('note.Categories.contains("Passengers")')
+        self.assertFalse(predicate({'properties': {}}, 'Passengers'))
+        with self.assertRaisesRegex(PluginError, 'must be Text'):
+            predicate({'properties': {'Categories': ['Passengers']}}, 'Passengers')
+
     def test_recursive_boolean_filters(self):
         predicate = compile_filter({'or': ['file.hasTag("page")', {'not': ['file.name.contains("hide")']}]})
         self.assertTrue(predicate({'tags': [], 'name': 'visible'}, 'Tech'))

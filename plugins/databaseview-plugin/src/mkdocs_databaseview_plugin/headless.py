@@ -44,9 +44,10 @@ def compile_filter(spec):
     match = re.fullmatch(r'file\.name\.contains\("([^"\\]*)"\)', expression)
     if match:
         return lambda note, context: match[1] in note['name']
-    match = re.fullmatch(r'(?:note\.)?([A-Za-z_][\w ]*)\.contains\(this\.file\.name\.toString\(\)\)', expression)
+    match = re.fullmatch(r'(?:note\.)?([A-Za-z_][\w ]*)\.contains\((?:this\.file\.name\.toString\(\)|"([^"\\]*)")\)', expression)
     if match:
         key = match[1]
+        literal = match[2]
         def contains(note, context):
             value = note['properties'].get(key)
             if value is None:
@@ -55,7 +56,7 @@ def compile_filter(spec):
                 # Obsidian Link values in lists differ from strings. Never
                 # silently approximate those comparisons.
                 unsupported(f'{key} must be Text for this category filter')
-            return context in value
+            return (context if literal is None else literal) in value
         return contains
     unsupported(spec)
 

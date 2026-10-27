@@ -15,7 +15,7 @@ plugins:
 - Visible Markdown files, YAML properties, and frontmatter/inline tags.
 - `file.hasTag("page")`, including nested tags; `file.name.contains("text")`.
 - `!`, and recursive `and`, `or`, `not` filter groups.
-- `Categories.contains(this.file.name.toString())`, with Categories stored as Text.
+- `Categories.contains(this.file.name.toString())` or `Categories.contains("Passengers")`, with Categories stored as Text.
 - Global plus selected-view filters; default first view or exact named view.
 - Table views with `order` columns (`file.name` and note properties), display names,
   and column widths (widths are presentation-only and ignored on the website).
