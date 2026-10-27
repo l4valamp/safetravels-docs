@@ -1,0 +1,121 @@
+/* Rearview: presentation only. Material owns layout and interactive behavior.
+   System fonts need no downloads, redistribution, or third-party font service. */
+:root {
+  --rv-paper: #eee7da;
+  --rv-muted: #b6aa99;
+  --rv-ink: #20211f;
+  --rv-panel: #282824;
+  --rv-rule: #514a3e;
+  --rv-yellow: #e6bb54;
+  --rv-rust: #d68d70;
+  --rv-signal: #c94225;
+  --rv-display: Georgia, "Times New Roman", serif;
+  --rv-mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --md-text-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --md-code-font: var(--rv-mono);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--rv-ink);
+  --md-default-fg-color: var(--rv-paper);
+  --md-default-fg-color--light: var(--rv-muted);
+  --md-default-fg-color--lighter: #827969;
+  --md-default-fg-color--lightest: #514a3e;
+  --md-primary-fg-color: #22231f;
+  --md-primary-bg-color: var(--rv-paper);
+  --md-primary-bg-color--light: var(--rv-muted);
+  --md-accent-fg-color: var(--rv-yellow);
+  --md-accent-fg-color--transparent: #e6bb541a;
+  --md-typeset-a-color: var(--rv-yellow);
+  --md-code-bg-color: #111310;
+  --md-code-fg-color: #e2d8c7;
+  --md-footer-bg-color: #121411;
+  --md-footer-bg-color--dark: #10120f;
+  --md-footer-fg-color: var(--rv-paper);
+}
+
+.md-header { box-shadow: none; border-bottom: 1px solid var(--rv-rule); }
+.md-header__topic:first-child { font-family: var(--rv-display); text-transform: uppercase; letter-spacing: .06em; font-size: 1.2rem; }
+.md-tabs { background: #22231f; border-bottom: 1px solid var(--rv-rule); }
+.md-tabs__link, .md-nav__title, .md-footer-meta, .rearview-eyebrow {
+  font-family: var(--rv-mono);
+}
+.md-tabs__link { font-size: .65rem; letter-spacing: .04em; }
+.md-tabs__link--active { color: var(--rv-yellow); }
+.md-nav__link--active, .md-nav__link:hover { color: var(--rv-yellow); }
+.md-nav__title { color: var(--rv-paper); font-size: .65rem; letter-spacing: .04em; }
+.md-nav--primary .md-nav__title { background: var(--rv-ink); box-shadow: none; }
+.md-nav--secondary { border-left-color: var(--rv-rule); }
+.md-search__form { border-radius: 0; }
+.md-search-result__meta { color: var(--rv-muted); }
+
+.md-typeset { font-size: .8rem; line-height: 1.75; }
+.md-typeset h1, .md-typeset h2 {
+  color: var(--rv-paper);
+  font-family: var(--rv-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -.045em;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+.md-typeset h1 { font-size: clamp(2.25rem, 5vw, 3.7rem); margin-bottom: .65em; }
+.md-typeset h2 { font-size: 1.8rem; border-top: 1px solid var(--rv-rule); padding-top: .7em; margin-top: 1.7em; }
+.md-typeset h3 { color: var(--rv-paper); font-weight: 650; }
+.md-typeset a:not(.headerlink):hover { text-decoration: underline; text-underline-offset: .2em; }
+.md-typeset hr { border-color: var(--rv-rule); }
+.md-typeset blockquote { border-left: 2px solid var(--rv-rust); color: var(--rv-muted); }
+.md-typeset code { border-radius: 0; }
+.md-typeset pre { line-height: 1.6; }
+.md-typeset .highlight { border: 1px solid var(--rv-rule); }
+.md-typeset table:not([class]) { background: var(--rv-panel); border: 1px solid var(--rv-rule); border-radius: 0; font-size: .72rem; }
+.md-typeset table:not([class]) th { color: var(--rv-paper); background: #302c24; font-family: var(--rv-mono); font-weight: 600; }
+.md-typeset table:not([class]) td { border-top: 1px solid var(--rv-rule); }
+.md-typeset table:not([class]) tr:hover { background: #e6bb5409; }
+.md-typeset .admonition, .md-typeset details {
+  background: var(--rv-panel); color: var(--rv-paper); border-radius: 0;
+  box-shadow: none; font-size: .75rem;
+}
+.md-typeset .admonition-title, .md-typeset summary { font-family: var(--rv-mono); }
+.md-typeset .admonition.info, .md-typeset details.info { border-color: var(--rv-rule); }
+.md-typeset .info > .admonition-title, .md-typeset .info > summary { background: #e6bb5410; }
+.md-typeset .info > .admonition-title::before, .md-typeset .info > summary::before { background-color: var(--rv-yellow); }
+.md-typeset .tabbed-labels { border-bottom-color: var(--rv-rule); }
+.md-typeset .tabbed-labels > label { font-family: var(--rv-mono); font-size: .68rem; }
+.md-typeset iframe { display: block; max-width: 100%; width: 100%; aspect-ratio: 960 / 569; height: auto; border: 1px solid var(--rv-rule); margin: 2rem 0; background: var(--rv-panel); }
+
+/* Homepage treatment is applied by the theme; notes need no CSS classes. */
+.rearview-home {
+  background: linear-gradient(103deg, transparent 78%, #c9422512 78%), radial-gradient(ellipse at 90% 0%, #82604426, transparent 60%);
+  border-top: 3px solid var(--rv-signal);
+  padding-top: 1.2rem;
+}
+.md-typeset .rearview-eyebrow {
+  color: var(--rv-yellow); font-size: .6rem; text-transform: uppercase;
+  letter-spacing: .12em; margin: 0 0 1.4rem;
+}
+.rearview-home h1 { font-size: clamp(3rem, 8vw, 5.4rem); letter-spacing: -.06em; margin-bottom: .15em; }
+.rearview-home h1 + p { font-size: 1.15rem; color: var(--rv-paper); margin-top: 0; }
+.rearview-home h1 + p + p { color: var(--rv-muted); margin-bottom: 2rem; max-width: 28rem; }
+
+/* Retain typed entity colors and hooks; improve contrast and panel geometry. */
+.md-typeset .entity { border-radius: 2px; border-width: 1px; border-style: solid; }
+.md-typeset .entity-bool { color: #f0aaa3; }
+.md-typeset .entity-string { color: #ef9dd7; }
+.md-typeset .entity-default { color: var(--rv-muted); }
+.md-typeset .entity-scope-f { filter: none; border-style: dashed; }
+.entity-popup { background: var(--rv-panel); color: var(--rv-paper); border-color: var(--rv-rule); border-radius: 0; max-width: calc(100vw - 2rem); }
+
+:focus-visible { outline: 2px solid var(--rv-yellow); outline-offset: 3px; }
+@media (max-width: 44.984375em) {
+  .md-typeset h1 { font-size: 2.5rem; }
+  .rearview-home h1 { font-size: clamp(3rem, 15vw, 5rem); }
+  .md-typeset .admonition.inline { float: none; width: 100%; margin: 1rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .entity-definition-highlight { animation: none; outline: 2px solid var(--rv-yellow); }
+}
+@media print {
+  .rearview-home { background: none; }
+  .md-typeset h1, .md-typeset h2, .rearview-home h1 + p { color: #111; }
+}

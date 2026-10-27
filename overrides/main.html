@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{# Keep Material's content, navigation, search and plugin output intact. #}
+{% block content %}
+  {% if page.is_homepage %}
+    <div class="rearview-home">
+      <p class="rearview-eyebrow">Rearview / Team field guide</p>
+      {{ super() }}
+    </div>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}

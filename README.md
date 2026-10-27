@@ -48,6 +48,21 @@ are not used for team publication. The companion is no longer enabled in shared
 settings. If it is still active in an already-open Obsidian window, disable
 **Reading Wiki Exporter** once; teammates never need to install it.
 
+## Visual theme
+
+Rearview uses Material's existing slate palette, navigation, search, tabs and
+callouts. `docs/stylesheets/rearview.css` contains the color tokens and visual
+rules, loaded after the original entity stylesheet. `overrides/main.html` adds
+the homepage wrapper automatically; regular Obsidian notes need no extra HTML,
+classes or front matter. Existing embeds resize to fit mobile screens.
+
+Display headings use locally installed Georgia/Times with serif
+fallbacks; body and code use system sans-serif and monospace stacks. No font
+files are redistributed or downloaded, and appearance varies slightly by OS.
+The pitch and art-bible embeds are retained. The supplied slide images inform
+the wide, heavy headings, charcoal, aged cream, muddy brown and orange-red
+accents. No unverified stock or reference art is used as a homepage background.
+
 ## Optional developer checks
 
 These commands are for maintainers, not teammates:

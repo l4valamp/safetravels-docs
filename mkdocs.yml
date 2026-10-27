@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: Safe Travels Documentation
+site_name: Rearview
+site_description: Team field guide for Rearview, an isometric taxi-driving game.
 site_url: https://l4valamp.github.io/safetravels-docs/
 docs_dir: docs
 exclude_docs: |
@@ -8,6 +9,8 @@ exclude_docs: |
 
 theme:
   name: material
+  custom_dir: overrides
+  font: false
   palette: 
     scheme: slate
     primary: amber
@@ -46,6 +49,7 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/rearview.css
 
 extra_javascript:
   - javascripts/entities.js
