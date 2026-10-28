@@ -34,6 +34,17 @@
   --md-footer-fg-color: var(--rv-paper);
 }
 
+/* A faint scene across the upper page fades back into the charcoal canvas. */
+body[data-md-color-scheme="slate"] {
+  background-color: var(--rv-ink);
+  background-image:
+    linear-gradient(to bottom, #20211fcc 0%, #20211fe6 45%, var(--rv-ink) 100%),
+    url("../Assets/rearview-background.webp");
+  background-position: center top;
+  background-size: 100% 100vh, auto 100vh;
+  background-repeat: no-repeat;
+}
+
 .md-header { box-shadow: none; border-bottom: 1px solid var(--rv-rule); }
 .md-header__topic:first-child { font-family: var(--rv-display); text-transform: uppercase; letter-spacing: .06em; font-size: 1rem; }
 .md-tabs { background: #22231f; border-bottom: 1px solid var(--rv-rule); }
