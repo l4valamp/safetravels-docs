@@ -16,11 +16,11 @@ header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-
 | **Thematic Argument**                     |
 |                                           |
 | **Surface Level Impressions**             |
-| Cheery clueless tourist                   |
+|                                           |
 | **Deeper Truths**                         |
 |                                           |
 | **Point of Discovery**                    |
-| Picking him up from the hotel             |
+|                                           |
 | **Application of theme in the mechanics** |
 |                                           |
 | **Points of Uncertainty**                 |
