@@ -29,3 +29,21 @@ header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-
 | None this guy is goated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | **Potential strengths in the idea**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | - This character should be so haughty and self assured and sanitized so that he is maximally fun to tick off. <br>- As reactive as possible to all of the player's poor driving.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+
+**Greta Tech Plan:**
+The Politician keeps track of:
+- Number of missed terms. 
+- Whenever the player goes off road. 
+- How long the player has been off-road for in the current off-road excursion.
+- How long the player has gone off-road total. 
+- Whether the player is stopped
+- How long the player has been stopped at a time
+- How many times the player has been stopped
+- Elapsed time the player has been stopped
+- Whenever the player hits something
+- How many times the player has hit something
+- Whenever the player takes a sharp turn (tension on wheels) or swerving
+- How many sharp turns the player has taken
+- Whether the player is doing donuts. 
+- How far away the player is from the destination
+- How long the route has taken so far (compared to an ideal time)
