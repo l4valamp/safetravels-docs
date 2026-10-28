@@ -34,15 +34,22 @@
   --md-footer-fg-color: var(--rv-paper);
 }
 
-/* Keep the scene visible across the full viewport, including while scrolling. */
+/* A real fixed layer avoids mobile browsers' background-attachment limits. */
 body[data-md-color-scheme="slate"] {
   background-color: var(--rv-ink);
+  isolation: isolate;
+}
+body[data-md-color-scheme="slate"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image:
-    linear-gradient(to bottom, #20211f80 0%, #20211f99 55%, #20211fb3 100%),
+    linear-gradient(to bottom, #20211f14, #20211f2e),
     url("../Assets/rearview-background.png");
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -63,7 +70,7 @@ body[data-md-color-scheme="slate"] {
 
 .md-typeset { font-size: .8rem; line-height: 1.75; }
 .md-content__inner {
-  background: var(--rv-ink);
+  background: #20211fb3;
   padding: 1.2rem;
   box-shadow: 0 .4rem 1.6rem #0005;
 }
@@ -168,6 +175,7 @@ body[data-md-color-scheme="slate"] {
   .entity-definition-highlight { animation: none; outline: 2px solid var(--rv-yellow); }
 }
 @media print {
+  body[data-md-color-scheme="slate"]::before { display: none; }
   .md-content__inner { background: none; box-shadow: none; padding: 0; }
   .rearview-home { background: none; }
   .md-typeset h1, .md-typeset h2, .rearview-home h1 + p { color: #111; }
