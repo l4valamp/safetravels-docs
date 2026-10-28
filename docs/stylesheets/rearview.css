@@ -47,7 +47,7 @@ body[data-md-color-scheme="slate"]::before {
   pointer-events: none;
   background-image:
     linear-gradient(to bottom, #20211f00 40%, #20211f80 70%, var(--rv-ink) 100%),
-    url("../Assets/rearview-background.png");
+    url("https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-28%20005937.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
