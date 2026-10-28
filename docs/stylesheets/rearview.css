@@ -34,14 +34,15 @@
   --md-footer-fg-color: var(--rv-paper);
 }
 
-/* A faint scene across the upper page fades back into the charcoal canvas. */
+/* Keep the scene visible across the full viewport, including while scrolling. */
 body[data-md-color-scheme="slate"] {
   background-color: var(--rv-ink);
   background-image:
-    linear-gradient(to bottom, #20211fcc 0%, #20211fe6 45%, var(--rv-ink) 100%),
-    url("../Assets/rearview-background.webp");
-  background-position: center top;
-  background-size: 100% 100vh, auto 100vh;
+    linear-gradient(to bottom, #20211f80 0%, #20211f99 55%, #20211fb3 100%),
+    url("../Assets/rearview-background.png");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
