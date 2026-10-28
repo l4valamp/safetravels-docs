@@ -62,6 +62,17 @@ rules, loaded after the original entity stylesheet. `overrides/main.html` adds
 the homepage wrapper automatically; regular Obsidian notes need no extra HTML,
 classes or front matter. Existing embeds resize to fit mobile screens.
 
+To override the fixed background on one page, add this Text property to the
+note's YAML front matter (or Obsidian Properties):
+
+```yaml
+override background image url: "https://example.com/background.png"
+```
+
+Use a direct HTTP or HTTPS image URL. The existing gradient and content opacity
+still apply. Removing the property or leaving it empty restores the default
+background; other pages keep their own backgrounds.
+
 Display headings use locally installed Georgia/Times with serif
 fallbacks; body and code use system sans-serif and monospace stacks. No font
 files are redistributed or downloaded, and appearance varies slightly by OS.
