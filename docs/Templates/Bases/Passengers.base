@@ -4,3 +4,5 @@ filters:
 views:
   - type: cards
     name: View
+    order:
+      - file.name
