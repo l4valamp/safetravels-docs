@@ -32,18 +32,25 @@ header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-
 
 **Greta Tech Plan:**
 The Politician keeps track of:
-- Number of missed terms. 
-- Whenever the player goes off road. 
-- How long the player has been off-road for in the current off-road excursion.
-- How long the player has gone off-road total. 
-- Whether the player is stopped
-- How long the player has been stopped at a time
-- How many times the player has been stopped
-- Elapsed time the player has been stopped
-- Whenever the player hits something
-- How many times the player has hit something
-- Whenever the player takes a sharp turn (tension on wheels) or swerving
-- How many sharp turns the player has taken
-- Whether the player is doing donuts. 
-- How far away the player is from the destination
-- How long the route has taken so far (compared to an ideal time)
+- [x] Number of missed turns. 
+- [x] Whenever the player goes off road. 
+- [x] How long the player has been off-road for in the current off-road excursion.
+- [x] How long the player has gone off-road total. 
+- [x] Whether the player is stopped
+- [x] How long the player has been stopped at a time
+- [x] How many times the player has been stopped
+- [x] Elapsed time the player has been stopped
+- [ ] Whenever the player hits something
+- [ ] How many times the player has hit something
+- [ ] Wheel tension (frequent sharp turns, swerving, donuts)
+- [ ] How far away the player is from the destination
+- [ ] How long the route has taken so far (compared to an ideal time)
+- [ ] Harsh, fast stops
+
+**Annoyance States:**
+- Pleasant
+- Irritated
+- Frantic
+- Psychotic
+
+Passenger UI: This could all be in a component and we could "Check" the things the individual passenger pays attention to. The component has a "passenger debug UI" that can record these variables and display them. 
