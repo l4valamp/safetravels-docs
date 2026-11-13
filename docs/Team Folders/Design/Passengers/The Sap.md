@@ -27,3 +27,8 @@ header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-
 | Specific landmarks and points of dissonance that would be filled in as the map gets fleshed out.<br>Where is she coming from and where is she going?                                                                                                                                                                                                                                                                                                                                            |
 | **Potential strengths in the idea**                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | - I like that this fleshes out mechanics related to hyper-reactivity to the environment.<br>- I also like that this will require implementing longer, trailing series of dialogue boxes.<br>- I like that this could serve as an introduction to the fact that these characters have subjective perceptions of the town and you should look closely for details in the environment and notice discrepancies in what they're saying. The truth is something you need to piece together etc etc.  |
+#### Greta Tech Plan:
+The Sap keeps track of:
+- Where you are (volumes? sight lines? painted map?)
+- How many times you've been through somewhere
+- What order you go to certain landmarks in?
