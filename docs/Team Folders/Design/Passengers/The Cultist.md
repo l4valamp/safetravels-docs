@@ -1,0 +1,32 @@
+---
+tags:
+  - page
+Categories: Design
+header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png
+---
+# The Cultist
+
+| **Name**                                                                                                                                                                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The Cultist                                                                                                                                                                                                                                                |
+| **Appearance**                                                                                                                                                                                                                                             |
+| ![[Pasted image 20261113175424.png\|276]]                                                                                                                                                                                                                  |
+| **Premise**                                                                                                                                                                                                                                                |
+| A passenger who is very polite and seemingly a normal guy. His route has you go deep into the heart of the forest where your car is attacked by a group of cultists who live in the woods. During the whole ordeal this passenger seem comepletely unfazed |
+| **Thematic Argument**                                                                                                                                                                                                                                      |
+| Some people have begun to embrace the Hotels new ascendency over the town, and accept it as the new status quo, this manifest is ways that are completely contradict the towns original way of life and have begun to define a new "normal" for the town   |
+| **Surface Level Impressions**                                                                                                                                                                                                                              |
+| A chipper individual who just finished his day at work and is heading home.                                                                                                                                                                                |
+| **Deeper Truths**                                                                                                                                                                                                                                          |
+| He's actually been inducted into a cult that worships the hotel as a higher power.                                                                                                                                                                         |
+| **Point of Discovery**                                                                                                                                                                                                                                     |
+| When entering the forest before the initial attack one person runs out Infront of your car that you are able to hit.                                                                                                                                       |
+| **Application of theme in the mechanics**                                                                                                                                                                                                                  |
+| A section where you drive through the forest and have to avoid different cult members that run at your car and damage it if hit                                                                                                                            |
+| **Points of Uncertainty**                                                                                                                                                                                                                                  |
+| -tech heavy                                                                                                                                                                                                                                                |
+| **Potential strengths in the idea**                                                                                                                                                                                                                        |
+| - strong trailer moment<br>-                                                                                                                                                                                                                               |
+|                                                                                                                                                                                                                                                            |
+
+
