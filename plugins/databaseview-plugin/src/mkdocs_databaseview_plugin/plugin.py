@@ -49,7 +49,7 @@ class NoteLinks(InlineProcessor):
 
 class AttachmentLinks(InlineProcessor):
     def __init__(self, plugin):
-        super().__init__(r'!\[\[([^\]|]+\.(?:png|jpe?g|gif|svg|webp|avif))(?:\|([^\]]+))?\]\]')
+        super().__init__(r'!\[\[([^\]|]+\.(?:png|jpe?g|gif|svg|webp|avif))(?:\\?\|([^\]]+))?\]\]')
         self.plugin = plugin
 
     def handleMatch(self, match, data):
@@ -79,7 +79,9 @@ class NoteLinksExtension(Extension):
     def extendMarkdown(self, md):
         # Code spans and fenced code are handled first by Python-Markdown.
         md.inlinePatterns.register(NoteLinks(self.plugin), "databaseview-wikilinks", 175)
-        md.inlinePatterns.register(AttachmentLinks(self.plugin), "databaseview-attachments", 176)
+        # Table cells escape the size separator as \|. Consume it before the
+        # escape processor replaces it with a placeholder (code spans run first).
+        md.inlinePatterns.register(AttachmentLinks(self.plugin), "databaseview-attachments", 185)
 
 
 class DBViewPlugin(BasePlugin):
