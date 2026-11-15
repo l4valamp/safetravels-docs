@@ -6,3 +6,5 @@ header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-
 ---
 
 # Dialogue System Breakdown
+
+
