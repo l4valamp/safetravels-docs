@@ -5,6 +5,12 @@ Categories: "Tech"
 header image url: "https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png"
 ---
 
+# Passenger Tech Breakdown
+
+## Resources and References
+
+## Notes
+
 - A passenger class is a child of BP_PassengerBase
 - Each passenger has BPC_Passengerbrain. This listens to the player's BPC_NavData.
 - The google sheets are converted to Data Tables
