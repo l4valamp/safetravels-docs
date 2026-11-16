@@ -2,7 +2,7 @@
 tags:
   - page
 Categories: Tech
-header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png
+header image url: https://bugsblog.neocities.org/cabbypics/tech/Screenshot%202026-11-15%20190335.png
 ---
 
 # Road Logic

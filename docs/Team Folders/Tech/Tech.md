@@ -12,7 +12,7 @@ tags:
 	- A customizable realistic car that is fun to drive and intuitive to control. Interacts with physics, much is controlled in the wheels. The car must detect crashes and damage, be reactive to ground friction, and give off appropriate VFX. The values that control the car's game feel must be exposed to dev settings. The car must be the appropriate size. 
 - **[[Road Logic]]**
 	- Designers must be able to place road splines handle everything. Roads must be able to detect intersections with each other and segment their own data automatically. Roads must be set default sizes. Roads must have additional customization and decals built-in. Roads must have lanes. Roads segments could have their own persistent identities (requires editor tool?)
-- **[[Route Instructions]]**
+- **[[Route Navigation]]**
 	- A GPS system that can give the player instructions from where they are to their target destination. This system may be able to filter out certain roads based on conditions (closures, avoiding certain neighborhoods, avoiding left-turns, etc.). Relies on Road Registration breaking road splines down into a workable structure of nodes and edges.
 - [[Passenger Commentary System Breakdown]]
 	- Possibly the biggest system. Passengers must detect how and where you are driving, analyze their dialogue options, and queue them properly. 
