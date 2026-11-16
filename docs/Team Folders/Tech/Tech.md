@@ -14,7 +14,7 @@ tags:
 	- Designers must be able to place road splines handle everything. Roads must be able to detect intersections with each other and segment their own data automatically. Roads must be set default sizes. Roads must have additional customization and decals built-in. Roads must have lanes. Roads segments could have their own persistent identities (requires editor tool?)
 - **[[Route Navigation]]**
 	- A GPS system that can give the player instructions from where they are to their target destination. This system may be able to filter out certain roads based on conditions (closures, avoiding certain neighborhoods, avoiding left-turns, etc.). Relies on Road Registration breaking road splines down into a workable structure of nodes and edges.
-- [[Passenger Commentary System Breakdown]]
+- [[Passenger Commentary System]]
 	- Possibly the biggest system. Passengers must detect how and where you are driving, analyze their dialogue options, and queue them properly. 
 - **[[Arcade Mode]]**
 	- Infinite game mode that randomly selects passengers and routes on a timer. Ignores persistent plot-related flags or passenger memory. Used for testing and keeping game-systems separate from hard-coded progression systems.
