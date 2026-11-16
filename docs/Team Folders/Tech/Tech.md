@@ -25,7 +25,7 @@ tags:
 - **[[Saving and Loading]]**
 	- Money can be used at auto-body shops to save progress. Gives players control, but can't abuse save-scumming. Passengers can use bribes to get the player to do immoral or dangerous things. 
 
-PRIORITY 3:
+**PRIORITY 3:**
 - **[[AI Cars]]**
 	- Cars on the road that drive naturally, detect intersections, handle traffic themselves. Requires more in-depth handling with the roads. (Lanes, intersection collision boxes).
 - **[[NPC People]]**

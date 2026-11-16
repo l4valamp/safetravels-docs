@@ -2,7 +2,7 @@
 tags:
   - page
 Categories: Tech
-header image url: https://bugsblog.neocities.org/cabbypics/tech/ezgif.com-speed_1.gif
+header image url: https://bugsblog.neocities.org/cabbypics/tech/ezgif.com-speed_2.gif
 ---
 
 # Passenger Tech Breakdown
