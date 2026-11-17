@@ -2,11 +2,10 @@
 tags:
   - page
 Categories: Passengers
-header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-27%20235140.png
+header image url: https://bugsblog.neocities.org/cabbypics/Passengers/Screenshot%202026-11-15%20175626.png
 ---
 
 # The Surveyor
-
 
 | **Name**                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,4 +28,3 @@ header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-10-
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | **Potential strengths in the idea**                                                                                                                                                                                                                                                                                                                                                                                                            |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-test

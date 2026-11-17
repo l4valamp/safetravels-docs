@@ -18,6 +18,8 @@ nav:
 
 theme:
   name: material
+  logo: Assets/branding/rearview-logo.webp
+  favicon: Assets/branding/rearview-logo.webp
   custom_dir: overrides
   font: false
   palette: 

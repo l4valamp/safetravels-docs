@@ -10,6 +10,7 @@ from xml.etree import ElementTree
 import yaml
 from markdown.extensions import Extension
 from markdown.inlinepatterns import InlineProcessor
+from markdown.preprocessors import Preprocessor
 from markdown.util import AtomicString
 from mkdocs.config import config_options
 from mkdocs.exceptions import PluginError
@@ -49,7 +50,7 @@ class NoteLinks(InlineProcessor):
 
 class AttachmentLinks(InlineProcessor):
     def __init__(self, plugin):
-        super().__init__(r'!\[\[([^\]|]+\.(?:png|jpe?g|gif|svg|webp|avif))(?:\|([^\]]+))?\]\]')
+        super().__init__(r'!\[\[([^\]|]+\.(?:png|jpe?g|gif|svg|webp|avif))(?:\\?\|([^\]]+))?\]\]')
         self.plugin = plugin
 
     def handleMatch(self, match, data):
@@ -71,15 +72,34 @@ class AttachmentLinks(InlineProcessor):
         return element, match.start(0), match.end(0)
 
 
+class ObsidianLists(Preprocessor):
+    """Allow top-level lists to interrupt paragraphs, as they do in Obsidian."""
+
+    def run(self, lines):
+        output = []
+        marker = re.compile(r'^ {0,3}(?:[-+*]|\d+[.)])[ \t]+\S')
+        for line in lines:
+            if marker.match(line) and output and output[-1].strip():
+                previous = output[-1]
+                if not marker.match(previous) and not previous.startswith(('    ', '\t')):
+                    output.append('')
+            output.append(line)
+        return output
+
+
 class NoteLinksExtension(Extension):
     def __init__(self, plugin):
         super().__init__()
         self.plugin = plugin
 
     def extendMarkdown(self, md):
+        # Run after fenced code and raw HTML have been stashed away.
+        md.preprocessors.register(ObsidianLists(md), 'databaseview-lists', 15)
         # Code spans and fenced code are handled first by Python-Markdown.
         md.inlinePatterns.register(NoteLinks(self.plugin), "databaseview-wikilinks", 175)
-        md.inlinePatterns.register(AttachmentLinks(self.plugin), "databaseview-attachments", 176)
+        # Table cells escape the size separator as \|. Consume it before the
+        # escape processor replaces it with a placeholder (code spans run first).
+        md.inlinePatterns.register(AttachmentLinks(self.plugin), "databaseview-attachments", 185)
 
 
 class DBViewPlugin(BasePlugin):

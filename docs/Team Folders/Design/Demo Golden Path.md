@@ -2,7 +2,7 @@
 tags:
   - page
 Categories: Design
-header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png
+header image url: https://bugsblog.neocities.org/cabbypics/tech/Widescreen-Cornfield-lg-1264982942.png
 ---
 
 # Demo Golden Path

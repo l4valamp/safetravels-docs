@@ -2,7 +2,7 @@
 tags:
   - page
 Categories: Passengers
-header image url: https://bugsblog.neocities.org/cabbypics/Screenshot%202026-11-12%20215441.png
+header image url: https://bugsblog.neocities.org/cabbypics/Passengers/Screenshot%202026-11-15%20175633.png
 ---
 
 # The P.I.

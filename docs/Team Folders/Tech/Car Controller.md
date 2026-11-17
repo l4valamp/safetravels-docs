@@ -1,9 +1,15 @@
 ---
 tags:
   - "#page"
-Categories: "[[Tech]]"
-header image url: "https://bugsblog.neocities.org/cabbypics/Screenshot%202026-07-22%20223828.png"
+Categories: Tech
+header image url: https://bugsblog.neocities.org/cabbypics/tech/Video_Project_62.gif
 ---
+
+# Car Controller
+
+## Resources and References
+
+## Notes
 
 !!! warning
 	Avoid putting physics in Event Tick using Delta Seconds. Add an accumulator. 
